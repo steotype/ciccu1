@@ -2,7 +2,6 @@ const csvFileName = 'pricelist.csv';
 let allApps = {};
 let currentCategory = 'all';
 
-// Mapping Kategori
 const appCategoryMap = {
     'netflix': 'streaming', 'iqiyi': 'streaming', 'vidio': 'streaming', 'viu': 'streaming', 
     'disney': 'streaming', 'youtube': 'streaming', 'loklok': 'streaming', 'loktv': 'streaming',
@@ -18,7 +17,6 @@ const appCategoryMap = {
     'claude': 'study', 'grok': 'study', 'grokai': 'study', 'ms365': 'study', 'microsoft': 'study'
 };
 
-// Mapping Logo
 const logoMap = {
     'netflix': 'netflix.com', 'disney': 'disneyplus.com', 'youtube': 'youtube.com', 
     'viu': 'viu.com', 'iqiyi': 'iq.com', 'amazon': 'primevideo.com', 'prime': 'primevideo.com',
@@ -101,7 +99,7 @@ async function loadPricelist() {
         updateCartUI();
 
     } catch (error) {
-        document.getElementById('statusMessage').innerHTML = `<p class="text-red-500 text-sm font-bold bg-red-50 p-4 rounded-xl border border-red-200">Gagal memuat file CSV. Pastikan file ${csvFileName} berada di folder yang sama.</p>`;
+        document.getElementById('statusMessage').innerHTML = `<p class="text-red-500 text-sm font-bold bg-red-50 p-4 rounded-xl border border-red-200">Gagal memuat file CSV.</p>`;
     }
 }
 
@@ -170,7 +168,7 @@ function renderCards(apps) {
 
         const safeName = name.replace(/'/g, "\\'");
         
-        // Cek apakah aplikasi Netflix untuk memunculkan tombol Info
+        // Pengecekan Netflix & Tombol Info
         const isNetflix = name.toLowerCase().trim() === 'netflix';
         const infoBtnHTML = isNetflix ? `
             <button onclick="openInfoNetflixModal()" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full bg-pink-100 text-pink-500 hover:bg-pink-200 transition-colors ml-2 outline-none shadow-sm" title="Info Tambahan">
@@ -458,7 +456,6 @@ function checkoutCartWA() {
     window.open(`https://wa.me/6285111571616?text=${encodedText}`, '_blank');
 }
 
-// Fungsi Modal Loyalty
 function openLoyaltyModal() {
     const modal = document.getElementById('loyaltyModal');
     const backdrop = document.getElementById('loyaltyModalBackdrop');
@@ -481,7 +478,6 @@ function closeLoyaltyModal() {
     setTimeout(() => { modal.classList.add('hidden'); }, 300);
 }
 
-// Fungsi Modal T&C
 function openTermsModal() {
     const modal = document.getElementById('termsModal');
     const backdrop = document.getElementById('termsModalBackdrop');
@@ -504,14 +500,27 @@ function closeTermsModal() {
     setTimeout(() => { modal.classList.add('hidden'); }, 300);
 }
 
-// Fungsi Info Tambahan Netflix
+// Fungsi Modal Info Netflix (Ditambahkan kembali animasi halus)
 function openInfoNetflixModal() {
-    document.getElementById('infoNetflixModal').classList.remove('hidden');
+    const modal = document.getElementById('infoNetflixModal');
+    const backdrop = document.getElementById('infoNetflixBackdrop');
+    const content = document.getElementById('infoNetflixContent');
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        backdrop.classList.replace('opacity-0', 'opacity-100');
+        content.classList.replace('opacity-0', 'opacity-100');
+        content.classList.replace('scale-95', 'scale-100');
+    }, 10);
 }
 
 function closeInfoNetflixModal() {
-    document.getElementById('infoNetflixModal').classList.add('hidden');
+    const modal = document.getElementById('infoNetflixModal');
+    const backdrop = document.getElementById('infoNetflixBackdrop');
+    const content = document.getElementById('infoNetflixContent');
+    backdrop.classList.replace('opacity-100', 'opacity-0');
+    content.classList.replace('opacity-100', 'opacity-0');
+    content.classList.replace('scale-100', 'scale-95');
+    setTimeout(() => { modal.classList.add('hidden'); }, 300);
 }
 
-// Menjalankan fungsi untuk menarik data CSV saat file diload
 loadPricelist();
