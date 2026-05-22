@@ -3,160 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricelist Aplikasi Premium - Ciccu</title>
+    <title>Ciccu Premium Apps - Cute Catalog</title>
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="Pricelist Aplikasi Premium - Ciccu">
     <meta property="og:image" content="https://raw.githubusercontent.com/steotype/steotype/e2b7df9199d8a9fff23b53e6885da69938fcc171/linkp.jpg">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pricelist Aplikasi Premium - Ciccu">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/steotype/steotype/e2b7df9199d8a9fff23b53e6885da69938fcc171/linkp.jpg">
-
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .fade-in-down { animation: fadeInDown 0.5s ease-out forwards; opacity: 0; transform: translateY(-15px); }
+        :root {
+            --soft-pink: #FFD1DC;
+            --hot-pink: #FF69B4;
+            --pastel-purple: #E0BBE4;
+            --pastel-yellow: #FFF9C4;
+        }
+
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            background-color: #FFF5F7;
+            background-image: radial-gradient(#FFD1DC 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+        }
+
+        .font-bubbly { font-family: 'Fredoka', sans-serif; }
+
+        .fade-in-down { 
+            animation: fadeInDown 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
+            opacity: 0; 
+            transform: translateY(-20px); 
+        }
         @keyframes fadeInDown { to { opacity: 1; transform: translateY(0); } }
-        /* Loader animasi */
-        .loader { border: 3px solid rgba(59, 130, 246, 0.1); border-left-color: #3b82f6; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
+
+        .loader { 
+            border: 4px solid #FFF; 
+            border-left-color: #FF69B4; 
+            border-radius: 50%; 
+            width: 30px; 
+            height: 30px; 
+            animation: spin 1s linear infinite; 
+        }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        /* Scrollbar kustom */
-        .custom-scroll::-webkit-scrollbar { width: 4px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #FFD1DC; border-radius: 10px; }
+
+        .card-cute {
+            background: white;
+            border: 3px solid #FFD1DC;
+            border-bottom: 6px solid #FFD1DC;
+            transition: all 0.3s ease;
+        }
+        .card-cute:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #FF69B4;
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+        }
+
+        .btn-pink {
+            background: #FF69B4;
+            color: white;
+            box-shadow: 0 4px 0px #D81B60;
+        }
+        .btn-pink:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px #D81B60;
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200 min-h-screen relative font-sans overflow-x-hidden">
+<body class="text-pink-900 min-h-screen relative overflow-x-hidden">
 
-    <main class="px-6 w-full max-w-md md:max-w-4xl lg:max-w-6xl mx-auto pb-24 relative z-0 pt-6 md:pt-10"> 
+    <main class="px-6 w-full max-w-md md:max-w-4xl lg:max-w-6xl mx-auto pb-24 relative z-0 pt-8 md:pt-12"> 
         
-        <div class="flex justify-between items-start mb-6 md:mb-8 fade-in-down">
+        <div class="flex justify-center items-center mb-10 fade-in-down text-center">
             <div>
-                <h1 class="text-3xl md:text-4xl font-black italic tracking-tighter text-white leading-none">CIC<span class="text-gray-500">CU</span></h1>
-                <p class="text-[10px] md:text-xs text-blue-500 font-bold uppercase tracking-[0.3em] mt-1.5">Premium Apps Catalog</p>
+                <h1 class="text-5xl md:text-6xl font-bubbly font-bold tracking-tight text-pink-500 leading-none drop-shadow-sm">
+                    CIC<span class="text-pink-300">CU</span>
+                </h1>
+                <p class="text-xs md:text-sm text-pink-400 font-bold uppercase tracking-[0.4em] mt-2">✨ Premium Apps Fairy ✨</p>
             </div>
         </div>
 
-        <div class="fade-in-down mb-6 md:mb-10 relative overflow-hidden bg-[#151923] border border-gray-700/50 rounded-[2rem] shadow-xl">
-            <div class="absolute -top-16 -right-16 w-40 h-40 bg-blue-600/20 blur-3xl rounded-full pointer-events-none md:w-64 md:h-64"></div>
-            <div class="p-6 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center relative z-10 gap-4">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold mb-1.5 text-white">Daftar Harga Aplikasi</h2>
-                    <p class="text-sm md:text-base text-gray-400 font-medium">Temukan layanan premium yang Anda butuhkan dengan harga terbaik.</p>
-                </div>
+        <div class="fade-in-down mb-8 relative overflow-hidden bg-white border-4 border-pink-100 rounded-[2.5rem] shadow-sm">
+            <div class="absolute -top-10 -left-10 w-32 h-32 bg-pink-100 blur-2xl rounded-full pointer-events-none"></div>
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-purple-100 blur-2xl rounded-full pointer-events-none"></div>
+            <div class="p-8 md:p-12 flex flex-col items-center text-center relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bubbly font-bold mb-3 text-pink-600">Daftar Harga Premium</h2>
+                <p class="text-sm md:text-base text-pink-400 font-medium max-w-lg">Temukan keajaiban aplikasi premium favoritmu dengan harga yang bikin hati senang! 💖</p>
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-5 mb-10 fade-in-down">
-            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 flex-1 w-full md:w-auto">
-                <button onclick="switchCategory('all')" id="cat-all" class="w-full py-2.5 md:py-3 rounded-xl border border-blue-500 bg-blue-600 text-[10px] md:text-xs font-bold text-white shadow-lg shadow-blue-900/20 transition-all outline-none">SEMUA</button>
-                <button onclick="switchCategory('streaming')" id="cat-streaming" class="w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none">STREAMING</button>
-                <button onclick="switchCategory('musik')" id="cat-musik" class="w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none">MUSIK</button>
-                <button onclick="switchCategory('produktivitas')" id="cat-produktivitas" class="w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none">PRODUKTIVITAS</button>
-                <button onclick="switchCategory('lainnya')" id="cat-lainnya" class="w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none">LAINNYA</button>
+        <div class="flex flex-col gap-6 mb-10 fade-in-down">
+            <div class="flex flex-wrap justify-center gap-2">
+                <button onclick="switchCategory('all')" id="cat-all" class="px-6 py-2.5 rounded-full border-2 border-pink-400 bg-pink-500 text-xs font-bold text-white shadow-md transition-all outline-none">SEMUA</button>
+                <button onclick="switchCategory('streaming')" id="cat-streaming" class="px-6 py-2.5 rounded-full border-2 border-pink-100 bg-white text-xs font-bold text-pink-400 hover:bg-pink-50 transition-all outline-none">STREAMING</button>
+                <button onclick="switchCategory('musik')" id="cat-musik" class="px-6 py-2.5 rounded-full border-2 border-pink-100 bg-white text-xs font-bold text-pink-400 hover:bg-pink-50 transition-all outline-none">MUSIK</button>
+                <button onclick="switchCategory('produktivitas')" id="cat-produktivitas" class="px-6 py-2.5 rounded-full border-2 border-pink-100 bg-white text-xs font-bold text-pink-400 hover:bg-pink-50 transition-all outline-none">PRODUKTIVITAS</button>
+                <button onclick="switchCategory('lainnya')" id="cat-lainnya" class="px-6 py-2.5 rounded-full border-2 border-pink-100 bg-white text-xs font-bold text-pink-400 hover:bg-pink-50 transition-all outline-none">LAINNYA</button>
             </div>
 
-            <div class="relative w-full md:w-80 lg:w-96 flex-shrink-0">
-                <input type="text" id="searchInput" oninput="applyFilters()" class="w-full h-[52px] bg-gray-800/80 border border-gray-700 text-gray-200 text-sm rounded-2xl block pl-12 pr-4 py-3 outline-none focus:border-blue-500 focus:bg-gray-800 transition-colors shadow-lg" placeholder="Cari aplikasi...">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="relative w-full max-w-xl mx-auto">
+                <input type="text" id="searchInput" oninput="applyFilters()" class="w-full h-14 bg-white border-3 border-pink-100 text-pink-800 text-sm rounded-full block pl-14 pr-6 py-3 outline-none focus:border-pink-400 transition-all shadow-sm" placeholder="Cari aplikasi kesayanganmu...">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
+                    <svg class="w-6 h-6 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
             </div>
         </div>
 
         <div id="statusMessage" class="flex flex-col items-center justify-center py-10 space-y-3">
             <div class="loader"></div>
-            <p class="text-sm text-gray-400 font-medium tracking-wide">Menarik data dari server...</p>
+            <p class="text-sm text-pink-400 font-bold tracking-wide">Siap-siap, data lagi terbang ke sini...</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="pricingGrid">
-            <div id="noResults" class="hidden col-span-full text-center py-12 fade-in-down max-w-md mx-auto w-full">
-                <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700/50 inline-block w-full text-center">
-                    <p class="text-gray-400 text-sm font-medium">Aplikasi tidak ditemukan di kategori ini.</p>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="pricingGrid">
+            <div id="noResults" class="hidden col-span-full text-center py-12 fade-in-down">
+                <p class="text-pink-300 text-lg font-bold">Ups! Aplikasinya lagi main petak umpet, nggak ketemu nih.. 🌸</p>
             </div>
         </div>
 
-        <div class="text-center mt-12 md:mt-20 pt-6 border-t border-gray-800 text-gray-500 text-[11px] font-bold tracking-widest uppercase">
-            © 2026 Ciccu. All rights reserved.
+        <div class="text-center mt-20 pt-10 border-t border-pink-100 text-pink-300 text-[11px] font-bold tracking-widest uppercase">
+            💖 2026 Ciccu Premium. Created with Love 💖
         </div>
     </main>
 
-    <button onclick="openCartModal()" id="floatingCartBtn" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[60] bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 md:px-5 md:py-4 rounded-full shadow-[0_10px_40px_rgba(37,99,235,0.4)] flex items-center gap-3 transition-all duration-500 transform translate-y-32 opacity-0 outline-none hover:scale-105 group">
+    <button onclick="openCartModal()" id="floatingCartBtn" class="fixed bottom-6 right-6 z-[60] bg-pink-500 text-white p-5 rounded-full shadow-lg flex items-center gap-3 transition-all duration-500 transform translate-y-32 opacity-0 outline-none hover:scale-110 group btn-pink">
         <div class="relative">
-            <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-            <span id="cartBadgeFloating" class="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 border-2 border-blue-600 text-[10px] text-white font-black shadow-md">0</span>
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            <span id="cartBadgeFloating" class="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-400 border-2 border-white text-[11px] text-pink-700 font-black">0</span>
         </div>
-        <span class="font-bold text-sm hidden md:block">Keranjang</span>
     </button>
 
     <div id="orderModal" class="fixed inset-0 z-[80] hidden flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="orderModalBackdrop" onclick="closeOrderModal()"></div>
-        <div class="relative bg-gray-800 border border-gray-700 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="orderModalContent">
-            
-            <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-gray-800 rounded-t-3xl">
-                <h3 class="text-xl font-black text-white flex items-center gap-2" id="modalAppNameTitle">Pilih Paket</h3>
-                <button onclick="closeOrderModal()" class="text-gray-400 hover:text-white transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        <div class="absolute inset-0 bg-pink-900/20 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="orderModalBackdrop" onclick="closeOrderModal()"></div>
+        <div class="relative bg-white border-4 border-pink-100 rounded-[2.5rem] w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0 overflow-hidden" id="orderModalContent">
+            <div class="p-6 border-b-2 border-pink-50 flex justify-between items-center bg-white">
+                <h3 class="text-xl font-bubbly font-bold text-pink-600" id="modalAppNameTitle">Pilih Paket</h3>
+                <button onclick="closeOrderModal()" class="text-pink-200 hover:text-pink-500 transition outline-none"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
-            
-            <div class="p-5 overflow-y-auto custom-scroll max-h-[50vh] space-y-3 bg-[#151923]" id="modalPackagesList">
-                </div>
-            
-            <div class="p-5 border-t border-gray-700 bg-gray-900/80 rounded-b-3xl">
-                <div id="qtyControl" class="hidden flex justify-between items-center mb-4 bg-gray-800 p-2 rounded-xl border border-gray-700">
-                    <span class="text-sm text-gray-400 pl-3 font-medium">Jumlah:</span>
-                    <div class="flex items-center gap-3 pr-1">
-                        <button onclick="changeQty(-1)" class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-lg hover:bg-gray-600 text-white font-bold outline-none transition-colors">-</button>
-                        <span id="qtyDisplay" class="text-white font-bold w-6 text-center text-lg">1</span>
-                        <button onclick="changeQty(1)" class="w-8 h-8 flex items-center justify-center bg-blue-600 rounded-lg hover:bg-blue-500 text-white font-bold outline-none transition-colors">+</button>
+            <div class="p-6 overflow-y-auto custom-scroll max-h-[45vh] space-y-3 bg-pink-50/30" id="modalPackagesList"></div>
+            <div class="p-6 bg-white">
+                <div id="qtyControl" class="hidden flex justify-between items-center mb-5 bg-pink-50 p-2 rounded-2xl">
+                    <span class="text-sm text-pink-400 pl-3 font-bold">Jumlah:</span>
+                    <div class="flex items-center gap-4 pr-1">
+                        <button onclick="changeQty(-1)" class="w-10 h-10 flex items-center justify-center bg-white rounded-xl text-pink-500 font-bold shadow-sm">-</button>
+                        <span id="qtyDisplay" class="text-pink-600 font-bold w-6 text-center text-lg">1</span>
+                        <button onclick="changeQty(1)" class="w-10 h-10 flex items-center justify-center bg-pink-500 rounded-xl text-white font-bold shadow-md">+</button>
                     </div>
                 </div>
-
-                <button onclick="addToCart()" id="btnProcessOrder" disabled class="w-full py-3.5 bg-gray-700 text-gray-400 cursor-not-allowed font-bold rounded-xl transition shadow-lg outline-none flex justify-center items-center gap-2">
-                    Pilih Paket Dulu
-                </button>
+                <button onclick="addToCart()" id="btnProcessOrder" disabled class="w-full py-4 bg-gray-100 text-gray-400 cursor-not-allowed font-bold rounded-2xl transition outline-none">Pilih Paket Dulu</button>
             </div>
         </div>
     </div>
 
     <div id="cartModal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="cartModalBackdrop" onclick="closeCartModal()"></div>
-        <div class="relative bg-gray-800 border border-gray-700 rounded-3xl w-full max-w-md flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="cartModalContent">
-            
-            <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-gray-800 rounded-t-3xl">
-                <h3 class="text-xl font-black text-white flex items-center gap-2">
-                    <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    Isi Keranjang
-                </h3>
-                <button onclick="closeCartModal()" class="text-gray-400 hover:text-white transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        <div class="absolute inset-0 bg-pink-900/20 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="cartModalBackdrop" onclick="closeCartModal()"></div>
+        <div class="relative bg-white border-4 border-pink-100 rounded-[2.5rem] w-full max-w-md flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0 overflow-hidden" id="cartModalContent">
+            <div class="p-6 border-b-2 border-pink-50 flex justify-between items-center">
+                <h3 class="text-xl font-bubbly font-bold text-pink-600 flex items-center gap-2">🛒 Isi Keranjang</h3>
+                <button onclick="closeCartModal()" class="text-pink-200 hover:text-pink-500 transition outline-none"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
-            
-            <div class="p-5 overflow-y-auto custom-scroll max-h-[50vh] bg-[#151923]" id="cartItemsList">
+            <div class="p-6 overflow-y-auto custom-scroll max-h-[50vh] bg-pink-50/30" id="cartItemsList"></div>
+            <div class="p-8 bg-white border-t-2 border-pink-50">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-pink-300 font-bold">Total Tabungan:</span>
+                    <span class="text-3xl font-bubbly font-bold text-pink-500" id="cartGrandTotal">0K</span>
                 </div>
-            
-            <div class="p-5 border-t border-gray-700 bg-gray-900/80 rounded-b-3xl">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-gray-400 font-medium text-sm">Total Tagihan:</span>
-                    <span class="text-2xl font-black text-white" id="cartGrandTotal">0K</span>
-                </div>
-                <button onclick="checkoutCartWA()" id="btnCheckoutWA" class="w-full py-3.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold rounded-xl transition shadow-xl shadow-green-900/30 outline-none flex justify-center items-center gap-2 transform hover:-translate-y-0.5">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    Checkout Sekarang
+                <button onclick="checkoutCartWA()" id="btnCheckoutWA" class="w-full py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-2xl transition shadow-lg flex justify-center items-center gap-3">
+                    Beli Sekarang via WA 💬
                 </button>
             </div>
         </div>
     </div>
 
-    <div id="toastNotif" class="fixed bottom-24 right-6 md:bottom-24 md:right-8 z-[100] bg-gray-800 border border-blue-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl transition-all duration-300 opacity-0 translate-y-10 pointer-events-none flex items-center gap-3">
-        <div class="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-        </div>
-        <div>
-            <p class="font-bold text-sm">Ditambahkan</p>
-            <p class="text-xs text-gray-400">Keranjang diperbarui.</p>
-        </div>
+    <div id="toastNotif" class="fixed bottom-24 right-6 z-[100] bg-white border-2 border-pink-200 text-pink-600 px-6 py-4 rounded-3xl shadow-xl transition-all duration-300 opacity-0 translate-y-10 pointer-events-none flex items-center gap-3">
+        <span class="text-2xl">✨</span>
+        <p class="font-bold text-sm">Sudah masuk keranjang, Kak!</p>
     </div>
 
     <script>
@@ -164,6 +186,7 @@
         let allApps = {};
         let currentCategory = 'all';
 
+        // Map kategori tetap sama untuk fungsionalitas
         const appCategoryMap = {
             'netflix': 'streaming', 'disney': 'streaming', 'youtube': 'streaming', 
             'viu': 'streaming', 'iqiyi': 'streaming', 'prime': 'streaming', 'amazon': 'streaming',
@@ -245,26 +268,22 @@
                     if (!row.trim()) return;
                     const cols = parseCSVLine(row);
                     if (cols.length < 4) return;
-
                     const appName = cols[0];
                     const category = cols[1]; 
                     const duration = cols[2]; 
                     const price = cols[3];    
                     const notes = cols.length > 4 ? cols[4] : '';
-
                     if (!apps[appName]) { apps[appName] = { categories: {}, appNotes: new Set() }; }
                     if (!apps[appName].categories[category]) { apps[appName].categories[category] = []; }
                     apps[appName].categories[category].push({ duration, price });
-                    if (notes && notes.toLowerCase() !== 'nan') { apps[appName].appNotes.add(notes); }
                 });
 
                 allApps = apps;
                 applyFilters();
                 document.getElementById('statusMessage').style.display = 'none';
                 updateCartUI();
-
             } catch (error) {
-                document.getElementById('statusMessage').innerHTML = `<p class="text-red-400 text-sm font-bold bg-red-900/20 p-4 rounded-xl border border-red-900/50">Gagal memuat file CSV. Pastikan file ${csvFileName} berada di folder PL.</p>`;
+                document.getElementById('statusMessage').innerHTML = `<p class="text-pink-500 font-bold bg-white p-4 rounded-2xl border-2 border-pink-100">Ups! Gagal tarik data nih. Cek file ${csvFileName} ya!</p>`;
             }
         }
 
@@ -275,8 +294,8 @@
                 const btn = document.getElementById(`cat-${c}`);
                 if (!btn) return;
                 btn.className = (c === cat) ? 
-                  "w-full py-2.5 md:py-3 rounded-xl border border-blue-500 bg-blue-600 text-[10px] md:text-xs font-bold text-white shadow-lg shadow-blue-900/20 transition-all outline-none" :
-                  "w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none";
+                  "px-6 py-2.5 rounded-full border-2 border-pink-400 bg-pink-500 text-xs font-bold text-white shadow-md transition-all outline-none" :
+                  "px-6 py-2.5 rounded-full border-2 border-pink-100 bg-white text-xs font-bold text-pink-400 hover:bg-pink-50 transition-all outline-none";
             });
             applyFilters();
         }
@@ -285,12 +304,10 @@
             const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
             const filteredApps = {};
             let hasVisibleCards = false;
-
             for (const [name, info] of Object.entries(allApps)) {
                 const matchesSearch = name.toLowerCase().includes(searchTerm);
                 const appCat = getAppCategory(name);
                 const matchesCategory = (currentCategory === 'all' || appCat === currentCategory);
-                
                 if (matchesSearch && matchesCategory) {
                     filteredApps[name] = info;
                     hasVisibleCards = true;
@@ -305,7 +322,6 @@
             const noResults = document.getElementById('noResults');
             grid.innerHTML = '';
             grid.appendChild(noResults);
-
             let delay = 0;
             for (const [name, info] of Object.entries(apps)) {
                 let packageHTML = '';
@@ -313,46 +329,36 @@
                     let itemsHTML = '';
                     items.forEach(item => {
                         itemsHTML += `
-                            <div class="flex justify-between items-center text-sm mb-1.5 last:mb-0 hover:bg-gray-800/30 p-1 rounded-md transition-colors">
-                                <span class="text-gray-400 font-medium">${item.duration}</span>
-                                <span class="text-gray-100 font-bold">${item.price}</span>
+                            <div class="flex justify-between items-center text-sm mb-1.5 p-1 rounded-md">
+                                <span class="text-pink-400 font-medium">${item.duration}</span>
+                                <span class="text-pink-700 font-bold">${item.price}</span>
                             </div>`;
                     });
                     packageHTML += `
-                        <div class="bg-gray-800/50 rounded-xl p-4 border border-gray-700/30 h-full">
-                            <div class="text-[11px] text-blue-400 font-bold uppercase tracking-widest mb-3 border-b border-gray-700/50 pb-1.5">${categoryName}</div>
+                        <div class="bg-pink-50/50 rounded-2xl p-4 border-2 border-pink-50">
+                            <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-2 border-b border-pink-100 pb-1">${categoryName}</div>
                             ${itemsHTML}
                         </div>`;
                 }
 
                 const logoUrl = getLogoUrl(name);
-                let logoHTML = logoUrl ? `<img src="${logoUrl}" class="w-8 h-8 md:w-9 md:h-9 rounded-lg object-cover bg-gray-800 p-0.5 border border-gray-700 shadow-sm" alt="${name}">` : `
-                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shadow-sm">
-                            <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                        </div>`;
+                let logoHTML = logoUrl ? `<img src="${logoUrl}" class="w-10 h-10 rounded-xl object-cover bg-white p-1 border-2 border-pink-50" alt="${name}">` : `
+                        <div class="w-10 h-10 rounded-xl bg-pink-100 border-2 border-pink-50 flex items-center justify-center text-pink-400">🎁</div>`;
 
                 const safeName = name.replace(/'/g, "\\'");
                 const card = document.createElement('div');
-                card.className = 'card flex flex-col bg-[#151923] border border-gray-700/50 rounded-2xl p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-blue-900/30 hover:shadow-2xl fade-in-down';
+                card.className = 'card-cute flex flex-col rounded-[2rem] p-7 fade-in-down';
                 card.style.animationDelay = `${delay}s`;
-                
                 card.innerHTML = `
-                    <div class="mb-5 pb-5 border-b border-gray-700/50 flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            ${logoHTML}
-                            <h2 class="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 uppercase tracking-tight">${name}</h2>
-                        </div>
+                    <div class="mb-5 pb-4 border-b-2 border-pink-50 flex items-center gap-4">
+                        ${logoHTML}
+                        <h2 class="text-2xl font-bubbly font-bold text-pink-500 uppercase tracking-tight">${name}</h2>
                     </div>
                     <div class="flex-1 flex flex-col gap-3 mb-6">${packageHTML}</div>
-                    <div class="mt-auto pt-5 border-t border-gray-700/50">
-                        <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-3.5 bg-blue-600 text-white text-sm font-bold rounded-xl hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/20 outline-none">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                            Pilih Paket
-                        </button>
-                    </div>
+                    <button onclick="openOrderModal('${safeName}')" class="w-full py-4 btn-pink text-sm font-bold rounded-2xl transition-all outline-none">Pilih Paket ✨</button>
                 `;
                 grid.appendChild(card);
-                delay += 0.04;
+                delay += 0.05;
             }
         }
 
@@ -365,249 +371,150 @@
             currentOrderApp = appName;
             selectedPackage = null;
             orderQty = 1;
-            
             document.getElementById('modalAppNameTitle').innerText = appName;
             document.getElementById('qtyDisplay').innerText = orderQty;
             document.getElementById('qtyControl').classList.add('hidden');
-            
             const info = allApps[appName];
             const list = document.getElementById('modalPackagesList');
             list.innerHTML = '';
-            
             let html = '';
             Object.entries(info.categories).forEach(([cat, items]) => {
                 items.forEach((item, index) => {
                     const pkgId = `pkg-${cat.replace(/[^a-zA-Z0-9]/g, '-')}-${index}`;
                     html += `
-                        <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border border-gray-700 bg-gray-800/50 p-4 rounded-xl cursor-pointer hover:border-blue-500 transition-all flex justify-between items-center group">
+                        <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border-2 border-pink-100 bg-white p-4 rounded-2xl cursor-pointer hover:border-pink-300 transition-all flex justify-between items-center group">
                             <div>
-                                <p class="text-[11px] text-blue-400 font-bold uppercase tracking-widest mb-1">${cat}</p>
-                                <p class="text-sm font-bold text-gray-200 group-hover:text-white transition-colors">${item.duration}</p>
+                                <p class="text-[10px] text-pink-300 font-bold uppercase mb-1">${cat}</p>
+                                <p class="text-sm font-bold text-pink-700">${item.duration}</p>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <p class="font-bold text-white text-lg">${item.price}</p>
-                                <div class="w-5 h-5 rounded-full border-2 border-gray-500 flex items-center justify-center check-indicator transition-colors"></div>
-                            </div>
+                            <p class="font-bold text-pink-500 text-lg">${item.price}</p>
                         </div>
                     `;
                 });
             });
             list.innerHTML = html;
-            
             const btn = document.getElementById('btnProcessOrder');
             btn.disabled = true;
-            btn.className = "w-full py-3.5 bg-gray-700 text-gray-400 cursor-not-allowed font-bold rounded-xl transition shadow-lg outline-none flex justify-center items-center gap-2";
+            btn.className = "w-full py-4 bg-gray-100 text-gray-400 cursor-not-allowed font-bold rounded-2xl transition outline-none";
             btn.innerHTML = "Pilih Paket Dulu";
-
             const modal = document.getElementById('orderModal');
-            const backdrop = document.getElementById('orderModalBackdrop');
-            const content = document.getElementById('orderModalContent');
             modal.classList.remove('hidden');
-            setTimeout(() => { backdrop.classList.replace('opacity-0', 'opacity-100'); content.classList.replace('opacity-0', 'opacity-100'); content.classList.replace('scale-95', 'scale-100'); }, 10);
+            setTimeout(() => { document.getElementById('orderModalBackdrop').classList.replace('opacity-0', 'opacity-100'); document.getElementById('orderModalContent').classList.replace('opacity-0', 'opacity-100'); document.getElementById('orderModalContent').classList.replace('scale-95', 'scale-100'); }, 10);
         }
 
         function selectPackage(pkgId, cat, dur, price) {
             selectedPackage = { app: currentOrderApp, cat, dur, price };
-            
             document.querySelectorAll('.package-option').forEach(el => {
-                el.classList.remove('border-blue-500', 'bg-blue-900/30');
-                el.classList.add('border-gray-700', 'bg-gray-800/50');
-                const check = el.querySelector('.check-indicator');
-                check.innerHTML = '';
-                check.classList.replace('border-blue-500', 'border-gray-500');
-                check.classList.remove('bg-blue-500');
+                el.classList.remove('border-pink-500', 'bg-pink-50');
+                el.classList.add('border-pink-100', 'bg-white');
             });
-
             const selectedEl = document.getElementById(pkgId);
-            selectedEl.classList.remove('border-gray-700', 'bg-gray-800/50');
-            selectedEl.classList.add('border-blue-500', 'bg-blue-900/30');
-            
-            const check = selectedEl.querySelector('.check-indicator');
-            check.classList.replace('border-gray-500', 'border-blue-500');
-            check.classList.add('bg-blue-500');
-            check.innerHTML = '<svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>';
-
+            selectedEl.classList.replace('border-pink-100', 'border-pink-500');
+            selectedEl.classList.add('bg-pink-50');
             document.getElementById('qtyControl').classList.remove('hidden');
             updateAddBtn();
         }
 
         function changeQty(delta) {
             if(!selectedPackage) return;
-            let newQty = orderQty + delta;
-            if(newQty < 1) newQty = 1;
-            if(newQty > 100) newQty = 100;
-            orderQty = newQty;
+            orderQty = Math.max(1, Math.min(100, orderQty + delta));
             document.getElementById('qtyDisplay').innerText = orderQty;
             updateAddBtn();
         }
 
-        function extractNumK(priceStr) {
-            return parseInt(priceStr.replace(/[^0-9]/g, '')) || 0;
-        }
+        function extractNumK(priceStr) { return parseInt(priceStr.replace(/[^0-9]/g, '')) || 0; }
 
         function updateAddBtn() {
             const btn = document.getElementById('btnProcessOrder');
             const total = extractNumK(selectedPackage.price) * orderQty;
-            
             btn.disabled = false;
-            btn.className = "w-full py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition shadow-lg shadow-blue-900/30 outline-none flex justify-center items-center gap-2";
-            btn.innerHTML = `
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                Tambah ke Keranjang (${total}K)
-            `;
+            btn.className = "w-full py-4 btn-pink text-white font-bold rounded-2xl transition shadow-lg outline-none";
+            btn.innerHTML = `Tambah ke Keranjang (${total}K) ✨`;
         }
 
         function closeOrderModal() {
-            const modal = document.getElementById('orderModal');
-            const backdrop = document.getElementById('orderModalBackdrop');
-            const content = document.getElementById('orderModalContent');
-            backdrop.classList.replace('opacity-100', 'opacity-0'); content.classList.replace('opacity-100', 'opacity-0'); content.classList.replace('scale-100', 'scale-95');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+            document.getElementById('orderModalBackdrop').classList.replace('opacity-100', 'opacity-0'); document.getElementById('orderModalContent').classList.replace('opacity-100', 'opacity-0'); document.getElementById('orderModalContent').classList.replace('scale-100', 'scale-95');
+            setTimeout(() => { document.getElementById('orderModal').classList.add('hidden'); }, 300);
         }
 
         function addToCart() {
             if(!selectedPackage) return;
-            const existIndex = cart.findIndex(item => 
-                item.app === selectedPackage.app && 
-                item.cat === selectedPackage.cat && 
-                item.dur === selectedPackage.dur
-            );
-
-            if(existIndex !== -1) {
-                cart[existIndex].qty += orderQty;
-            } else {
-                cart.push({ ...selectedPackage, qty: orderQty });
-            }
-
-            updateCartUI();
-            closeOrderModal();
-            showToast();
+            const existIndex = cart.findIndex(item => item.app === selectedPackage.app && item.cat === selectedPackage.cat && item.dur === selectedPackage.dur);
+            if(existIndex !== -1) { cart[existIndex].qty += orderQty; } else { cart.push({ ...selectedPackage, qty: orderQty }); }
+            updateCartUI(); closeOrderModal(); showToast();
         }
 
         function updateCartUI() {
             const count = cart.reduce((sum, item) => sum + item.qty, 0);
-            
-            // FAB melayang
             const fab = document.getElementById('floatingCartBtn');
-            const badgeFloat = document.getElementById('cartBadgeFloating');
-            
-            badgeFloat.innerText = count;
-            
-            if(count > 0) { 
-                fab.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none'); 
-            } else { 
-                fab.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none'); 
-            }
+            document.getElementById('cartBadgeFloating').innerText = count;
+            if(count > 0) { fab.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none'); } else { fab.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none'); }
         }
 
         function showToast() {
             const toast = document.getElementById('toastNotif');
-            toast.classList.replace('opacity-0', 'opacity-100');
-            toast.classList.replace('translate-y-10', 'translate-y-0');
-            setTimeout(() => {
-                toast.classList.replace('opacity-100', 'opacity-0');
-                toast.classList.replace('translate-y-0', 'translate-y-10');
-            }, 2500);
+            toast.classList.replace('opacity-0', 'opacity-100'); toast.classList.replace('translate-y-10', 'translate-y-0');
+            setTimeout(() => { toast.classList.replace('opacity-100', 'opacity-0'); toast.classList.replace('translate-y-0', 'translate-y-10'); }, 2500);
         }
 
         function openCartModal() {
             renderCartList();
             const modal = document.getElementById('cartModal');
-            const backdrop = document.getElementById('cartModalBackdrop');
-            const content = document.getElementById('cartModalContent');
             modal.classList.remove('hidden');
-            setTimeout(() => { backdrop.classList.replace('opacity-0', 'opacity-100'); content.classList.replace('opacity-0', 'opacity-100'); content.classList.replace('scale-95', 'scale-100'); }, 10);
+            setTimeout(() => { document.getElementById('cartModalBackdrop').classList.replace('opacity-0', 'opacity-100'); document.getElementById('cartModalContent').classList.replace('opacity-0', 'opacity-100'); document.getElementById('cartModalContent').classList.replace('scale-95', 'scale-100'); }, 10);
         }
 
         function closeCartModal() {
-            const modal = document.getElementById('cartModal');
-            const backdrop = document.getElementById('cartModalBackdrop');
-            const content = document.getElementById('cartModalContent');
-            backdrop.classList.replace('opacity-100', 'opacity-0'); content.classList.replace('opacity-100', 'opacity-0'); content.classList.replace('scale-100', 'scale-95');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+            document.getElementById('cartModalBackdrop').classList.replace('opacity-100', 'opacity-0'); document.getElementById('cartModalContent').classList.replace('opacity-100', 'opacity-0'); document.getElementById('cartModalContent').classList.replace('scale-100', 'scale-95');
+            setTimeout(() => { document.getElementById('cartModal').classList.add('hidden'); }, 300);
         }
 
         function renderCartList() {
             const list = document.getElementById('cartItemsList');
             const btnCheckout = document.getElementById('btnCheckoutWA');
-            
             if(cart.length === 0) {
-                list.innerHTML = `<div class="text-center py-10 text-gray-500 text-sm font-medium">Keranjang masih kosong.</div>`;
+                list.innerHTML = `<div class="text-center py-10 text-pink-200 text-sm font-bold">Keranjang kosong, yuk jajan! 🌸</div>`;
                 document.getElementById('cartGrandTotal').innerText = '0K';
-                btnCheckout.disabled = true;
-                btnCheckout.classList.replace('from-green-500', 'from-gray-600');
-                btnCheckout.classList.replace('to-green-600', 'to-gray-700');
-                btnCheckout.classList.add('opacity-50', 'cursor-not-allowed');
+                btnCheckout.disabled = true; btnCheckout.classList.add('opacity-50', 'cursor-not-allowed');
                 return;
             }
-
-            btnCheckout.disabled = false;
-            btnCheckout.classList.replace('from-gray-600', 'from-green-500');
-            btnCheckout.classList.replace('to-gray-700', 'to-green-600');
-            btnCheckout.classList.remove('opacity-50', 'cursor-not-allowed');
-
-            let html = '';
-            let grandTotalK = 0;
-
+            btnCheckout.disabled = false; btnCheckout.classList.remove('opacity-50', 'cursor-not-allowed');
+            let html = ''; let grandTotalK = 0;
             cart.forEach((item, index) => {
                 const itemTotalK = extractNumK(item.price) * item.qty;
                 grandTotalK += itemTotalK;
-
                 html += `
-                    <div class="flex justify-between items-center bg-gray-800 p-4 rounded-xl border border-gray-700 mb-3">
+                    <div class="flex justify-between items-center bg-white p-5 rounded-[1.5rem] border-2 border-pink-100 mb-4 shadow-sm">
                         <div class="flex-1">
-                            <h4 class="text-white font-bold text-sm mb-1">${item.app} <span class="text-xs font-normal text-gray-400">(${item.dur})</span></h4>
-                            <p class="text-[10px] text-blue-400 uppercase font-bold tracking-wider mb-2">${item.cat}</p>
-                            <div class="flex items-center gap-4 text-xs font-medium text-gray-400">
-                                <span>Harga: ${item.price}</span>
-                                <span>Jumlah: x${item.qty}</span>
-                            </div>
+                            <h4 class="text-pink-600 font-bold text-sm">${item.app} <span class="text-xs font-medium text-pink-300">(${item.dur})</span></h4>
+                            <p class="text-[9px] text-pink-300 uppercase font-bold tracking-widest mt-1">${item.cat}</p>
+                            <p class="text-xs text-pink-400 mt-2 font-bold">${item.qty} pcs x ${item.price}</p>
                         </div>
-                        <div class="flex flex-col items-end gap-2 pl-3 border-l border-gray-700">
-                            <button onclick="removeFromCart(${index})" class="text-gray-500 hover:text-red-400 transition p-1 outline-none">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                            </button>
-                            <p class="text-white font-black">${itemTotalK}K</p>
+                        <div class="flex flex-col items-end gap-3">
+                            <button onclick="removeFromCart(${index})" class="text-pink-200 hover:text-red-400 transition">❌</button>
+                            <p class="text-pink-500 font-black">${itemTotalK}K</p>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
-
             list.innerHTML = html;
             document.getElementById('cartGrandTotal').innerText = grandTotalK + 'K';
         }
 
         function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-            renderCartList();
-            
-            // Jika keranjang dkosongkan dari dalam modal, tutup otomatis
-            if(cart.length === 0) {
-                setTimeout(() => { closeCartModal(); }, 500);
-            }
+            cart.splice(index, 1); updateCartUI(); renderCartList();
+            if(cart.length === 0) { setTimeout(() => closeCartModal(), 500); }
         }
 
         function checkoutCartWA() {
             if(cart.length === 0) return;
-
-            let textWA = "Halo Admin, saya mau proses pesanan berikut:\n\n";
-            let grandTotal = 0;
-
+            let textWA = "Halo Ciccu sayang, aku mau jajan pesanan ini ya:\n\n";
+            let total = 0;
             cart.forEach((item, i) => {
-                const subTotal = extractNumK(item.price) * item.qty;
-                grandTotal += subTotal;
-                
-                textWA += `*${i+1}. ${item.app}*\n`;
-                textWA += `   - Paket: ${item.cat}\n`;
-                textWA += `   - Durasi: ${item.dur}\n`;
-                textWA += `   - Jumlah: ${item.qty} (Subtotal: ${subTotal}K)\n\n`;
+                const sub = extractNumK(item.price) * item.qty; total += sub;
+                textWA += `✨ *${item.app}* (${item.dur})\n   - Paket: ${item.cat}\n   - Qty: ${item.qty} pcs (Sub: ${sub}K)\n\n`;
             });
-
-            textWA += `*Total Tagihan: ${grandTotal}K*\n\nApakah stok tersedia?`;
-            
-            const encodedText = encodeURIComponent(textWA);
-            window.open(`https://wa.me/6283877337798?text=${encodedText}`, '_blank');
+            textWA += `💖 *Total Tagihan: ${total}K*\n\nBisa dibantu prosesnya Kak? Terima kasih!`;
+            window.open(`https://wa.me/6283877337798?text=${encodeURIComponent(textWA)}`, '_blank');
         }
 
         loadPricelist();
