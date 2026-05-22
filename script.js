@@ -87,10 +87,12 @@ async function loadPricelist() {
             const price = cols[3];    
             const notes = cols.length > 4 ? cols[4] : '';
 
-            if (!apps[appName]) { apps[appName] = { categories: {}, appNotes: new Set() }; }
+            if (!apps[appName]) { apps[appName] = { categories: {} }; }
             if (!apps[appName].categories[category]) { apps[appName].categories[category] = []; }
-            apps[appName].categories[category].push({ duration, price });
-            if (notes && notes.toLowerCase() !== 'nan') { apps[appName].appNotes.add(notes); }
+            
+            // Notes kini disimpan per baris item, bukan digabung
+            const itemNotes = (notes && notes.toLowerCase() !== 'nan') ? notes : '';
+            apps[appName].categories[category].push({ duration, price, notes: itemNotes });
         });
 
         allApps = apps;
@@ -147,10 +149,25 @@ function renderCards(apps) {
         for (const [categoryName, items] of Object.entries(info.categories)) {
             let itemsHTML = '';
             items.forEach(item => {
+                
+                // Format UI untuk Notes di bawah tiap baris
+                let noteHTML = '';
+                if (item.notes) {
+                    noteHTML = `
+                        <div class="text-[10px] text-pink-400/90 mt-1 flex items-start gap-1">
+                            <span class="font-bold text-pink-300">↳</span>
+                            <span class="italic leading-tight">${item.notes}</span>
+                        </div>
+                    `;
+                }
+
                 itemsHTML += `
-                    <div class="flex justify-between items-center text-sm mb-1.5 last:mb-0 hover:bg-pink-100/50 p-1.5 rounded-lg transition-colors">
-                        <span class="text-gray-500 font-medium">${item.duration}</span>
-                        <span class="text-gray-800 font-bold">${item.price}</span>
+                    <div class="mb-1.5 last:mb-0 hover:bg-pink-100/50 p-1.5 rounded-lg transition-colors">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-500 font-medium">${item.duration}</span>
+                            <span class="text-gray-800 font-bold">${item.price}</span>
+                        </div>
+                        ${noteHTML}
                     </div>`;
             });
             packageHTML += `
@@ -158,18 +175,6 @@ function renderCards(apps) {
                     <div class="text-[11px] text-pink-500 font-bold uppercase tracking-widest mb-3 border-b border-pink-200/60 pb-1.5">${categoryName}</div>
                     ${itemsHTML}
                 </div>`;
-        }
-
-        // --- Memproses dan memunculkan Notes ---
-        let notesHTML = '';
-        if (info.appNotes && info.appNotes.size > 0) {
-            const notesText = Array.from(info.appNotes).join(' | '); 
-            notesHTML = `
-                <div class="mt-3 bg-pink-50 border border-pink-200 rounded-xl p-3 text-[11px] md:text-xs text-pink-500 font-medium flex items-start gap-2 shadow-sm">
-                    <svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span class="leading-relaxed">${notesText}</span>
-                </div>
-            `;
         }
 
         const logoUrl = getLogoUrl(name);
@@ -201,8 +206,7 @@ function renderCards(apps) {
                     </div>
                 </div>
             </div>
-            <div class="flex-1 flex flex-col gap-3 mb-2">${packageHTML}</div>
-            ${notesHTML} 
+            <div class="flex-1 flex flex-col gap-3 mb-6">${packageHTML}</div>
             <div class="mt-auto pt-5 border-t border-pink-100">
                 <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-3.5 bg-pink-400 text-white text-sm font-bold rounded-xl hover:bg-pink-500 transition-colors shadow-md shadow-pink-200 outline-none">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
@@ -237,15 +241,23 @@ function openOrderModal(appName) {
     Object.entries(info.categories).forEach(([cat, items]) => {
         items.forEach((item, index) => {
             const pkgId = `pkg-${cat.replace(/[^a-zA-Z0-9]/g, '-')}-${index}`;
+            
+            // Notes dimunculkan juga di dalam list pilihan paket modal
+            let modalNoteHTML = '';
+            if (item.notes) {
+                modalNoteHTML = `<p class="text-[10px] text-pink-400 italic mt-1 leading-tight flex gap-1"><span class="text-pink-300">↳</span> ${item.notes}</p>`;
+            }
+
             html += `
                 <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border border-pink-200 bg-pink-50/50 p-4 rounded-xl cursor-pointer hover:border-pink-400 transition-all flex justify-between items-center group">
-                    <div>
+                    <div class="flex-1 pr-3">
                         <p class="text-[11px] text-pink-400 font-bold uppercase tracking-widest mb-1">${cat}</p>
                         <p class="text-sm font-bold text-gray-600 group-hover:text-gray-800 transition-colors">${item.duration}</p>
+                        ${modalNoteHTML}
                     </div>
                     <div class="flex items-center gap-3">
                         <p class="font-bold text-gray-800 text-lg">${item.price}</p>
-                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center check-indicator transition-colors bg-white"></div>
+                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center check-indicator transition-colors bg-white flex-shrink-0"></div>
                     </div>
                 </div>
             `;
