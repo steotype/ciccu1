@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricelist Aplikasi Premium - Ciccu</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pricelist Aplikasi Premium - Ciccu">
+    <meta property="og:image" content="https://raw.githubusercontent.com/steotype/steotype/e2b7df9199d8a9fff23b53e6885da69938fcc171/linkp.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pricelist Aplikasi Premium - Ciccu">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/steotype/steotype/e2b7df9199d8a9fff23b53e6885da69938fcc171/linkp.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in-down { animation: fadeInDown 0.5s ease-out forwards; opacity: 0; transform: translateY(-15px); }
+        @keyframes fadeInDown { to { opacity: 1; transform: translateY(0); } }
+        /* Loader animasi */
+        .loader { border: 3px solid rgba(59, 130, 246, 0.1); border-left-color: #3b82f6; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* Scrollbar kustom */
+        .custom-scroll::-webkit-scrollbar { width: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 min-h-screen relative font-sans overflow-x-hidden">
+
+    <main class="px-6 w-full max-w-md md:max-w-4xl lg:max-w-6xl mx-auto pb-24 relative z-0 pt-6 md:pt-10"> 
+        
+        <div class="flex justify-between items-start mb-6 md:mb-8 fade-in-down">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-black italic tracking-tighter text-white leading-none">CIC<span class="text-gray-500">CU</span></h1>
+                <p class="text-[10px] md:text-xs text-blue-500 font-bold uppercase tracking-[0.3em] mt-1.5">Premium Apps Catalog</p>
+            </div>
+        </div>
+
+        <div class="fade-in-down mb-6 md:mb-10 relative overflow-hidden bg-[#151923] border border-gray-700/50 rounded-[2rem] shadow-xl">
+            <div class="absolute -top-16 -right-16 w-40 h-40 bg-blue-600/20 blur-3xl rounded-full pointer-events-none md:w-64 md:h-64"></div>
+            <div class="p-6 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center relative z-10 gap-4">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-1.5 text-white">Daftar Harga Aplikasi</h2>
+                    <p class="text-sm md:text-base text-gray-400 font-medium">Temukan layanan premium yang Anda butuhkan dengan harga terbaik.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-5 mb-10 fade-in-down">
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 flex-1 w-full md:w-auto">
+                <button onclick="switchCategory('all')" id="cat-all" class="w-full py-2.5 md:py-3 rounded-xl border border-blue-500 bg-blue-600 text-[10px] md:text-xs font-bold text-white shadow-lg shadow-blue-900/20 transition-all outline-none">SEMUA</button>
+                <button onclick="switchCategory('streaming')" id="cat-streaming" class="w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none">STREAMING</button>
+                <button onclick="switchCategory('musik')" id="cat-musik" class="w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none">MUSIK</button>
+                <button onclick="switchCategory('produktivitas')" id="cat-produktivitas" class="w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none">PRODUKTIVITAS</button>
+                <button onclick="switchCategory('lainnya')" id="cat-lainnya" class="w-full py-2.5 md:py-3 rounded-xl border border-gray-700 bg-gray-800 text-[10px] md:text-xs font-bold text-gray-400 hover:bg-gray-700 transition-all outline-none">LAINNYA</button>
+            </div>
+
+            <div class="relative w-full md:w-80 lg:w-96 flex-shrink-0">
+                <input type="text" id="searchInput" oninput="applyFilters()" class="w-full h-[52px] bg-gray-800/80 border border-gray-700 text-gray-200 text-sm rounded-2xl block pl-12 pr-4 py-3 outline-none focus:border-blue-500 focus:bg-gray-800 transition-colors shadow-lg" placeholder="Cari aplikasi...">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+            </div>
+        </div>
+
+        <div id="statusMessage" class="flex flex-col items-center justify-center py-10 space-y-3">
+            <div class="loader"></div>
+            <p class="text-sm text-gray-400 font-medium tracking-wide">Menarik data dari server...</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="pricingGrid">
+            <div id="noResults" class="hidden col-span-full text-center py-12 fade-in-down max-w-md mx-auto w-full">
+                <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700/50 inline-block w-full text-center">
+                    <p class="text-gray-400 text-sm font-medium">Aplikasi tidak ditemukan di kategori ini.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12 md:mt-20 pt-6 border-t border-gray-800 text-gray-500 text-[11px] font-bold tracking-widest uppercase">
+            © 2026 Ciccu. All rights reserved.
+        </div>
+    </main>
+
+    <button onclick="openCartModal()" id="floatingCartBtn" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[60] bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 md:px-5 md:py-4 rounded-full shadow-[0_10px_40px_rgba(37,99,235,0.4)] flex items-center gap-3 transition-all duration-500 transform translate-y-32 opacity-0 outline-none hover:scale-105 group">
+        <div class="relative">
+            <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            <span id="cartBadgeFloating" class="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 border-2 border-blue-600 text-[10px] text-white font-black shadow-md">0</span>
+        </div>
+        <span class="font-bold text-sm hidden md:block">Keranjang</span>
+    </button>
+
+    <div id="orderModal" class="fixed inset-0 z-[80] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="orderModalBackdrop" onclick="closeOrderModal()"></div>
+        <div class="relative bg-gray-800 border border-gray-700 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="orderModalContent">
+            
+            <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-gray-800 rounded-t-3xl">
+                <h3 class="text-xl font-black text-white flex items-center gap-2" id="modalAppNameTitle">Pilih Paket</h3>
+                <button onclick="closeOrderModal()" class="text-gray-400 hover:text-white transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            
+            <div class="p-5 overflow-y-auto custom-scroll max-h-[50vh] space-y-3 bg-[#151923]" id="modalPackagesList">
+                </div>
+            
+            <div class="p-5 border-t border-gray-700 bg-gray-900/80 rounded-b-3xl">
+                <div id="qtyControl" class="hidden flex justify-between items-center mb-4 bg-gray-800 p-2 rounded-xl border border-gray-700">
+                    <span class="text-sm text-gray-400 pl-3 font-medium">Jumlah:</span>
+                    <div class="flex items-center gap-3 pr-1">
+                        <button onclick="changeQty(-1)" class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-lg hover:bg-gray-600 text-white font-bold outline-none transition-colors">-</button>
+                        <span id="qtyDisplay" class="text-white font-bold w-6 text-center text-lg">1</span>
+                        <button onclick="changeQty(1)" class="w-8 h-8 flex items-center justify-center bg-blue-600 rounded-lg hover:bg-blue-500 text-white font-bold outline-none transition-colors">+</button>
+                    </div>
+                </div>
+
+                <button onclick="addToCart()" id="btnProcessOrder" disabled class="w-full py-3.5 bg-gray-700 text-gray-400 cursor-not-allowed font-bold rounded-xl transition shadow-lg outline-none flex justify-center items-center gap-2">
+                    Pilih Paket Dulu
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cartModal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="cartModalBackdrop" onclick="closeCartModal()"></div>
+        <div class="relative bg-gray-800 border border-gray-700 rounded-3xl w-full max-w-md flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="cartModalContent">
+            
+            <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-gray-800 rounded-t-3xl">
+                <h3 class="text-xl font-black text-white flex items-center gap-2">
+                    <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Isi Keranjang
+                </h3>
+                <button onclick="closeCartModal()" class="text-gray-400 hover:text-white transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            
+            <div class="p-5 overflow-y-auto custom-scroll max-h-[50vh] bg-[#151923]" id="cartItemsList">
+                </div>
+            
+            <div class="p-5 border-t border-gray-700 bg-gray-900/80 rounded-b-3xl">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-400 font-medium text-sm">Total Tagihan:</span>
+                    <span class="text-2xl font-black text-white" id="cartGrandTotal">0K</span>
+                </div>
+                <button onclick="checkoutCartWA()" id="btnCheckoutWA" class="w-full py-3.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold rounded-xl transition shadow-xl shadow-green-900/30 outline-none flex justify-center items-center gap-2 transform hover:-translate-y-0.5">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Checkout Sekarang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastNotif" class="fixed bottom-24 right-6 md:bottom-24 md:right-8 z-[100] bg-gray-800 border border-blue-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl transition-all duration-300 opacity-0 translate-y-10 pointer-events-none flex items-center gap-3">
+        <div class="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <div>
+            <p class="font-bold text-sm">Ditambahkan</p>
+            <p class="text-xs text-gray-400">Keranjang diperbarui.</p>
+        </div>
+    </div>
+
+    <script>
+        const csvFileName = 'pricelist.csv';
+        let allApps = {};
+        let currentCategory = 'all';
+
+        const appCategoryMap = {
+            'netflix': 'streaming', 'disney': 'streaming', 'youtube': 'streaming', 
+            'viu': 'streaming', 'iqiyi': 'streaming', 'prime': 'streaming', 'amazon': 'streaming',
+            'hbo': 'streaming', 'bstation': 'streaming', 'wetv': 'streaming', 'we tv': 'streaming', 
+            'vidio': 'streaming', 'vision': 'streaming', 'moviebox': 'streaming', 
+            'crunchyroll': 'streaming', 'loklok': 'streaming', 'viki': 'streaming', 
+            'drakor': 'streaming', 'catchplay': 'streaming', 'youku': 'streaming', 
+            'gagaoolala': 'streaming', 'dramabox': 'streaming',
+            'spotify': 'musik', 'apple': 'musik',
+            'canva': 'produktivitas', 'capcut': 'produktivitas', 'adobe': 'produktivitas', 
+            'picsart': 'produktivitas', 'chatgpt': 'produktivitas', 'gemini': 'produktivitas',
+            'deepl': 'produktivitas', 'scribd': 'produktivitas', 'dazzcam': 'produktivitas', 
+            'vsco': 'produktivitas', 'wattpad': 'produktivitas', 'zoom': 'produktivitas', 'microsoft': 'produktivitas',
+            'vpn': 'lainnya', 'nordvpn': 'lainnya', 'expressvpn': 'lainnya', 
+            'get contact': 'lainnya', 'getcontact': 'lainnya'
+        };
+
+        const logoMap = {
+            'netflix': 'netflix.com', 'disney': 'disneyplus.com', 'youtube': 'youtube.com', 
+            'viu': 'viu.com', 'iqiyi': 'iq.com', 'amazon': 'primevideo.com', 'prime': 'primevideo.com',
+            'hbo': 'hbogoasia.id', 'bstation': 'bilibili.tv', 'wetv': 'wetv.vip', 'we tv': 'wetv.vip',
+            'vidio': 'vidio.com', 'vision': 'visionplus.id', 'moviebox': 'movieboxpro.app',
+            'crunchyroll': 'crunchyroll.com', 'loklok': 'loklok.com', 'viki': 'viki.com',
+            'drakor': 'drakor.id', 'catchplay': 'catchplay.com', 'youku': 'youku.tv',
+            'gagaoolala': 'gagaoolala.com', 'dramabox': 'dramaboxapp.com',
+            'spotify': 'open.spotify.com', 'apple': 'music.apple.com',
+            'canva': 'canva.com', 'capcut': 'capcut.com', 'picsart': 'picsart.com', 
+            'dazzcam': 'dazz.app', 'vsco': 'vsco.co', 'adobe': 'adobe.com',
+            'chatgpt': 'openai.com', 'gemini': 'gemini.google.com', 'deepl': 'deepl.com',
+            'scribd': 'scribd.com', 'wattpad': 'wattpad.com', 'zoom': 'zoom.us', 'microsoft': 'microsoft.com',
+            'get contact': 'getcontact.com', 'getcontact': 'getcontact.com', 'nordvpn': 'nordvpn.com',
+            'expressvpn': 'expressvpn.com', 'ipvanish': 'ipvanish.com'
+        };
+
+        function getAppCategory(appName) {
+            const nameLow = appName.toLowerCase();
+            for (const [key, value] of Object.entries(appCategoryMap)) {
+                if (nameLow.includes(key)) return value;
+            }
+            return 'lainnya';
+        }
+
+        function getLogoUrl(appName) {
+            const nameLow = appName.toLowerCase();
+            for (const [key, domain] of Object.entries(logoMap)) {
+                if (nameLow.includes(key)) {
+                    return `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+                }
+            }
+            return '';
+        }
+
+        function parseCSVLine(row) {
+            const cols = [];
+            let current = '';
+            let inQuotes = false;
+            for (let i = 0; i < row.length; i++) {
+                const char = row[i];
+                if (char === '"') { inQuotes = !inQuotes; } 
+                else if (char === ',' && !inQuotes) {
+                    cols.push(current.trim().replace(/^"|"$/g, ''));
+                    current = '';
+                } else { current += char; }
+            }
+            cols.push(current.trim().replace(/^"|"$/g, ''));
+            return cols;
+        }
+
+        async function loadPricelist() {
+            try {
+                const response = await fetch(csvFileName + '?t=' + new Date().getTime());
+                if (!response.ok) throw new Error("File tidak ditemukan");
+                
+                const data = await response.text();
+                const rows = data.split(/\r?\n/).slice(1); 
+                const apps = {};
+
+                rows.forEach(row => {
+                    if (!row.trim()) return;
+                    const cols = parseCSVLine(row);
+                    if (cols.length < 4) return;
+
+                    const appName = cols[0];
+                    const category = cols[1]; 
+                    const duration = cols[2]; 
+                    const price = cols[3];    
+                    const notes = cols.length > 4 ? cols[4] : '';
+
+                    if (!apps[appName]) { apps[appName] = { categories: {}, appNotes: new Set() }; }
+                    if (!apps[appName].categories[category]) { apps[appName].categories[category] = []; }
+                    apps[appName].categories[category].push({ duration, price });
+                    if (notes && notes.toLowerCase() !== 'nan') { apps[appName].appNotes.add(notes); }
+                });
+
+                allApps = apps;
+                applyFilters();
+                document.getElementById('statusMessage').style.display = 'none';
+                updateCartUI();
+
+            } catch (error) {
+                document.getElementById('statusMessage').innerHTML = `<p class="text-red-400 text-sm font-bold bg-red-900/20 p-4 rounded-xl border border-red-900/50">Gagal memuat file CSV. Pastikan file ${csvFileName} berada di folder PL.</p>`;
+            }
+        }
+
+        function switchCategory(cat) {
+            currentCategory = cat;
+            const categories = ['all', 'streaming', 'musik', 'produktivitas', 'lai
