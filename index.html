@@ -1,20 +1,48 @@
+<section class="mb-8 fade-in-down">
+  <div class="bg-gradient-to-r from-pink-100 via-rose-50 to-pink-100 border border-pink-200 rounded-[2rem] p-6 shadow-lg shadow-pink-100">
+    <div class="text-center mb-5">
+      <h3 class="text-2xl font-black text-pink-600">🎁 Ciccu Loyalty Rewards</h3>
+      <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+        Setiap transaksi mendapatkan stamp loyalty. Kumpulkan stamp dan tukarkan dengan berbagai reward menarik ✨
+      </p>
+    </div>
+    <div class="overflow-hidden rounded-3xl border border-pink-200 bg-white shadow-sm">
+      <img src="lcard.png" alt="Loyalty Card" class="w-full h-auto object-contain">
+    </div>
+  </div>
+</section>
+
+<section class="mb-8">
+<button onclick="toggleTerms()" class="w-full py-3 bg-white border border-pink-200 rounded-2xl text-pink-500 font-bold hover:bg-pink-50 transition">
+📜 Lihat Terms & Conditions
+</button>
+<div id="termsContent" class="hidden mt-4 bg-white border border-pink-200 rounded-3xl p-5">
+<h3 class="text-xl font-black text-pink-600 mb-4">📜 Terms & Conditions</h3>
+<ul class="text-sm text-gray-600 space-y-2">
+<li>🌸 Membeli berarti menyetujui seluruh ketentuan yang berlaku.</li>
+<li>🔒 Garansi mengikuti keterangan pada masing-masing produk.</li>
+<li>♻️ Penggantian dilakukan setelah proses pengecekan.</li>
+<li>💸 Refund hanya diberikan apabila pesanan tidak dapat dipenuhi seller.</li>
+</ul>
+</div>
+</section>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workie Premium Apps - Ciccu Store</title>
+    <title>Pricelist Aplikasi Premium - Ciccu Store</title>
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Workie Premium Apps - Ciccu Store">
+    <meta property="og:title" content="Pricelist Aplikasi Premium - Ciccu Store">
     <meta property="og:image" content="https://raw.githubusercontent.com/steotype/steotype/e2b7df9199d8a9fff23b53e6885da69938fcc171/linkp.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Workie Premium Apps - Ciccu Store">
+    <meta name="twitter:title" content="Pricelist Aplikasi Premium - Ciccu Store">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/steotype/steotype/e2b7df9199d8a9fff23b53e6885da69938fcc171/linkp.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg,#fff1f7,#ffe4ef,#fff0f6); }
@@ -26,7 +54,6 @@
             radial-gradient(circle at 40% 80%, rgba(244,114,182,.15) 3px, transparent 3px);
             background-size:90px 90px;
         }
-        .font-fredoka { font-family: 'Fredoka', sans-serif; }
         .floaty{animation:floaty 3s ease-in-out infinite;}
         @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
         .card{position:relative;border-radius:28px!important}
@@ -38,7 +65,7 @@
         .loader { border: 3px solid rgba(236, 72, 153, 0.2); border-left-color: #ec4899; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         /* Scrollbar kustom */
-        .custom-scroll::-webkit-scrollbar { width: 4px; }
+        .custom-scroll::-webkit-scrollbar { height: 4px; width: 4px; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 4px; }
     </style>
 </head>
@@ -61,19 +88,8 @@
             <div class="absolute -top-16 -right-16 w-40 h-40 bg-pink-300/30 blur-3xl rounded-full pointer-events-none md:w-64 md:h-64"></div>
             <div class="p-6 md:p-10 flex flex-col relative z-10 gap-4 text-center md:text-left">
                 <div>
-                    <h2 class="font-fredoka text-3xl md:text-4xl mb-3 text-pink-500 drop-shadow-[0_2px_10px_rgba(236,72,153,0.15)] tracking-wide">
-                        🎀 Workie Premium Apps 🎀
-                    </h2>
-                    <p class="text-sm md:text-base text-gray-500 font-medium leading-relaxed">𓏭 🌷⭐️ 𝗪𝗼𝗿𝗸𝗶𝗲 land . . . 🪽 ♡ !? open 🥣🌱 ꕤ⁺◦ ⌒ 𓈒♡ ぬいぐるみ . . あまぬい 👛 ‧ . ⊹ 𓏭ᱸ♡ ⌗ 🧁 ？あまい 🎀☘️ ⊹ ふわあま 🥛 ♡ !? softie doll 🐰🍭 𓂃 ˚ 𖠗</p>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row gap-3 mt-2">
-                    <button onclick="openLoyaltyModal()" class="flex-1 py-3 px-4 bg-pink-50 border border-pink-200 rounded-2xl text-pink-500 font-bold hover:bg-pink-100 transition-colors shadow-sm outline-none flex items-center justify-center gap-2">
-                        🎁 Loyalty Card
-                    </button>
-                    <button onclick="openTermsModal()" class="flex-1 py-3 px-4 bg-white border border-pink-200 rounded-2xl text-pink-400 font-bold hover:bg-pink-50 transition-colors shadow-sm outline-none flex items-center justify-center gap-2">
-                        📜 T&C
-                    </button>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 text-pink-600">Pricelist Aplikasi Premium</h2>
+                    <p class="text-[11px] md:text-base text-gray-500 font-medium leading-relaxed whitespace-nowrap overflow-x-auto custom-scroll pb-1">𓏭 🌷⭐️ 𝗪𝗼𝗿𝗸𝗶𝗲 land . . . 🪽 ♡ !? open 🥣🌱 ꕤ⁺◦ ⌒ 𓈒♡ ぬいぐるみ . . あまぬい 👛 ‧ . ⊹ 𓏭ᱸ♡ ⌗ 🧁 ？あまい 🎀☘️ ⊹ ふわあま 🥛 ♡ !? softie doll 🐰🍭 𓂃 ˚ 𖠗</p>
                 </div>
             </div>
         </div>
@@ -124,11 +140,15 @@
     <div id="orderModal" class="fixed inset-0 z-[80] hidden flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="orderModalBackdrop" onclick="closeOrderModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="orderModalContent">
+            
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
                 <h3 class="text-xl font-black text-pink-600 flex items-center gap-2" id="modalAppNameTitle">Pilih Paket</h3>
                 <button onclick="closeOrderModal()" class="text-pink-300 hover:text-pink-500 transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
-            <div class="p-5 overflow-y-auto custom-scroll max-h-[50vh] space-y-3 bg-white" id="modalPackagesList"></div>
+            
+            <div class="p-5 overflow-y-auto custom-scroll max-h-[50vh] space-y-3 bg-white" id="modalPackagesList">
+                </div>
+            
             <div class="p-5 border-t border-pink-100 bg-pink-50 rounded-b-3xl">
                 <div id="qtyControl" class="hidden flex justify-between items-center mb-4 bg-white p-2 rounded-xl border border-pink-200">
                     <span class="text-sm text-gray-500 pl-3 font-medium">Jumlah:</span>
@@ -138,7 +158,8 @@
                         <button onclick="changeQty(1)" class="w-8 h-8 flex items-center justify-center bg-pink-400 rounded-lg hover:bg-pink-500 text-white font-bold outline-none transition-colors">+</button>
                     </div>
                 </div>
-                <button onclick="addToCart()" id="btnProcessOrder" disabled class="w-full py-3.5 bg-pink-100 text-pink-400 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2">
+
+                <button onclick="addToCart()" id="btnProcessOrder" disabled class="w-full py-3.5 bg-pink-200 text-pink-400 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2">
                     Pilih Paket Dulu 🦄
                 </button>
             </div>
@@ -148,6 +169,7 @@
     <div id="cartModal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="cartModalBackdrop" onclick="closeCartModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-md flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="cartModalContent">
+            
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
                 <h3 class="text-xl font-black text-pink-600 flex items-center gap-2">
                     <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -155,7 +177,10 @@
                 </h3>
                 <button onclick="closeCartModal()" class="text-pink-300 hover:text-pink-500 transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
-            <div class="p-5 overflow-y-auto custom-scroll max-h-[50vh] bg-white" id="cartItemsList"></div>
+            
+            <div class="p-5 overflow-y-auto custom-scroll max-h-[50vh] bg-white" id="cartItemsList">
+                </div>
+            
             <div class="p-5 border-t border-pink-100 bg-pink-50 rounded-b-3xl">
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-gray-500 font-medium text-sm">Total Tagihan:</span>
@@ -169,50 +194,18 @@
         </div>
     </div>
 
-    <div id="loyaltyModal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="loyaltyModalBackdrop" onclick="closeLoyaltyModal()"></div>
-        <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="loyaltyModalContent">
-            <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
-                <h3 class="text-xl font-black text-pink-600 flex items-center gap-2">🎀 Ciccu Loyalty Card</h3>
-                <button onclick="closeLoyaltyModal()" class="text-pink-300 hover:text-pink-500 transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
-            </div>
-            <div class="p-5 bg-white rounded-b-3xl">
-                <div class="overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm">
-                    <img src="lcard.png" alt="Loyalty Card" class="w-full h-auto object-contain">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="termsModal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="termsModalBackdrop" onclick="closeTermsModal()"></div>
-        <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="termsModalContent">
-            <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
-                <h3 class="text-xl font-black text-pink-600 flex items-center gap-2">📜 Terms & Conditions</h3>
-                <button onclick="closeTermsModal()" class="text-pink-300 hover:text-pink-500 transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
-            </div>
-            <div class="p-6 bg-white space-y-4">
-                <div class="space-y-1.5">
-                    <h4 class="font-bold text-pink-500 text-sm flex items-center gap-1.5">🌸 Ketentuan Pembelian</h4>
-                    <p class="text-xs text-gray-600 leading-relaxed pl-5">Membeli berarti menyetujui seluruh ketentuan yang berlaku di Ciccu Store.</p>
-                </div>
-                <div class="space-y-1.5">
-                    <h4 class="font-bold text-pink-500 text-sm flex items-center gap-1.5">🔒 Garansi</h4>
-                    <p class="text-xs text-gray-600 leading-relaxed pl-5">Garansi mengikuti keterangan spesifik pada masing-masing detail produk.</p>
-                </div>
-                <div class="space-y-1.5">
-                    <h4 class="font-bold text-pink-500 text-sm flex items-center gap-1.5">♻️ Replace</h4>
-                    <p class="text-xs text-gray-600 leading-relaxed pl-5">Proses penggantian / replace akun dilakukan setelah melewati proses pengecekan seller.</p>
-                </div>
-                <div class="space-y-1.5">
-                    <h4 class="font-bold text-pink-500 text-sm flex items-center gap-1.5">💸 Refund</h4>
-                    <p class="text-xs text-gray-600 leading-relaxed pl-5">Refund dana hanya diberikan apabila pesanan fix tidak dapat dipenuhi oleh seller.</p>
-                </div>
-            </div>
-            <div class="p-4 bg-pink-50 border-t border-pink-100 rounded-b-3xl">
-                <button onclick="closeTermsModal()" class="w-full py-2.5 bg-pink-400 text-white font-bold text-sm rounded-xl hover:bg-pink-500 transition shadow-sm outline-none">
-                    Tutup
+    <!-- MODAL INFO NETFLIX -->
+    <div id="infoNetflixModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300" onclick="closeInfoNetflixModal()"></div>
+        <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl p-5 transform transition-all duration-300">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-md font-bold text-pink-600 flex items-center gap-1.5">ℹ️ Info Tambahan Netflix</h3>
+                <button onclick="closeInfoNetflixModal()" class="text-pink-300 hover:text-pink-500 transition outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
+            </div>
+            <div class="overflow-hidden rounded-2xl border border-pink-100 bg-gray-50">
+                <img src="snet.jpg" alt="Info Netflix" class="w-full h-auto object-contain">
             </div>
         </div>
     </div>
@@ -232,26 +225,34 @@
         let allApps = {};
         let currentCategory = 'all';
 
+        // Kategori
         const appCategoryMap = {
             'netflix': 'streaming', 'iqiyi': 'streaming', 'vidio': 'streaming', 'viu': 'streaming', 
             'disney': 'streaming', 'youtube': 'streaming', 'loklok': 'streaming', 'loktv': 'streaming',
             'prime': 'streaming', 'amazon': 'streaming', 'hbo': 'streaming', 'apple tv': 'streaming',
             'gagaoolala': 'streaming', 'crunchyroll': 'streaming', 'dramabox': 'streaming',
             'wetv': 'streaming', 'we tv': 'streaming',
+            
             'spotify': 'music', 'apple music': 'music', 'apple': 'music',
+            
             'capcut': 'editing', 'canva': 'editing', 'alight motion': 'editing', 'alight': 'editing',
+            
             'turnitin': 'study', 'cek turnitin': 'study', 'cek ai': 'study', 'chatgpt': 'study', 
             'claude': 'study', 'grok': 'study', 'grokai': 'study', 'ms365': 'study', 'microsoft': 'study'
         };
 
+        // Pembaruan logo/ikon map otomatis
         const logoMap = {
             'netflix': 'netflix.com', 'disney': 'disneyplus.com', 'youtube': 'youtube.com', 
             'viu': 'viu.com', 'iqiyi': 'iq.com', 'amazon': 'primevideo.com', 'prime': 'primevideo.com',
             'hbo': 'hbogoasia.id', 'wetv': 'wetv.vip', 'we tv': 'wetv.vip',
             'vidio': 'vidio.com', 'crunchyroll': 'crunchyroll.com', 'loklok': 'loklok.com', 'loktv': 'loklok.com',
             'gagaoolala': 'gagaoolala.com', 'dramabox': 'dramaboxapp.com', 'apple tv': 'tv.apple.com',
+            
             'spotify': 'open.spotify.com', 'apple music': 'music.apple.com', 'apple': 'music.apple.com',
+            
             'canva': 'canva.com', 'capcut': 'capcut.com', 'alight motion': 'alightcreative.com', 'alight': 'alightcreative.com',
+            
             'chatgpt': 'openai.com', 'claude': 'anthropic.com', 'grok': 'x.ai', 'grokai': 'x.ai', 
             'ms365': 'office.com', 'microsoft': 'microsoft.com', 'turnitin': 'turnitin.com', 
             'cek turnitin': 'turnitin.com', 'cek ai': 'zerogpt.com'
@@ -262,7 +263,7 @@
             for (const [key, value] of Object.entries(appCategoryMap)) {
                 if (nameLow.includes(key)) return value;
             }
-            return 'lainnya';
+            return 'lainnya'; // Jika di luar map tetap dibaca
         }
 
         function getLogoUrl(appName) {
@@ -297,7 +298,9 @@
                 if (!response.ok) throw new Error("File tidak ditemukan");
                 
                 const data = await response.text();
-                const rows = data.split(/\r?\n/).slice(1); 
+                const rows = data.split(/
+?
+/).slice(1); 
                 const apps = {};
 
                 rows.forEach(row => {
@@ -391,6 +394,15 @@
                         </div>`;
 
                 const safeName = name.replace(/'/g, "\\'");
+                
+                // Cek apakah aplikasi saat ini adalah Netflix (case-insensitive)
+                const isNetflix = name.toLowerCase().trim() === 'netflix';
+                const infoBtnHTML = isNetflix ? `
+                    <button onclick="openInfoNetflixModal()" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full bg-pink-100 text-pink-500 hover:bg-pink-200 transition-colors ml-2 outline-none shadow-sm" title="Info Tambahan">
+                        <span class="font-bold text-xs md:text-sm">i</span>
+                    </button>
+                ` : '';
+
                 const card = document.createElement('div');
                 card.className = 'card flex flex-col bg-white border border-pink-200 rounded-2xl p-6 shadow-xl shadow-pink-100/40 transition-all duration-300 hover:-translate-y-1 hover:border-pink-300 hover:shadow-pink-200 hover:shadow-2xl fade-in-down';
                 card.style.animationDelay = `${delay}s`;
@@ -399,7 +411,10 @@
                     <div class="mb-5 pb-5 border-b border-pink-100 flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             ${logoHTML}
-                            <h2 class="text-xl md:text-2xl font-black text-pink-600 uppercase tracking-tight">${name}</h2>
+                            <div class="flex items-center">
+                                <h2 class="text-xl md:text-2xl font-black text-pink-600 uppercase tracking-tight">${name}</h2>
+                                ${infoBtnHTML}
+                            </div>
                         </div>
                     </div>
                     <div class="flex-1 flex flex-col gap-3 mb-6">${packageHTML}</div>
@@ -526,6 +541,14 @@
             setTimeout(() => { modal.classList.add('hidden'); }, 300);
         }
 
+        function openInfoNetflixModal() {
+            document.getElementById('infoNetflixModal').classList.remove('hidden');
+        }
+
+        function closeInfoNetflixModal() {
+            document.getElementById('infoNetflixModal').classList.add('hidden');
+        }
+
         function addToCart() {
             if(!selectedPackage) return;
             const existIndex = cart.findIndex(item => 
@@ -547,6 +570,7 @@
 
         function updateCartUI() {
             const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            
             const fab = document.getElementById('floatingCartBtn');
             const badgeFloat = document.getElementById('cartBadgeFloating');
             
@@ -668,52 +692,7 @@
             window.open(`https://wa.me/6285111571616?text=${encodedText}`, '_blank');
         }
 
-        /* FUNGSI KONTROL BARU UNTUK MODAL LOYALTY & TERMS */
-        function openLoyaltyModal() {
-            const modal = document.getElementById('loyaltyModal');
-            const backdrop = document.getElementById('loyaltyModalBackdrop');
-            const content = document.getElementById('loyaltyModalContent');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                backdrop.classList.replace('opacity-0', 'opacity-100');
-                content.classList.replace('opacity-0', 'opacity-100');
-                content.classList.replace('scale-95', 'scale-100');
-            }, 10);
-        }
-
-        function closeLoyaltyModal() {
-            const modal = document.getElementById('loyaltyModal');
-            const backdrop = document.getElementById('loyaltyModalBackdrop');
-            const content = document.getElementById('loyaltyModalContent');
-            backdrop.classList.replace('opacity-100', 'opacity-0');
-            content.classList.replace('opacity-100', 'opacity-0');
-            content.classList.replace('scale-100', 'scale-95');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
-        }
-
-        function openTermsModal() {
-            const modal = document.getElementById('termsModal');
-            const backdrop = document.getElementById('termsModalBackdrop');
-            const content = document.getElementById('termsModalContent');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                backdrop.classList.replace('opacity-0', 'opacity-100');
-                content.classList.replace('opacity-0', 'opacity-100');
-                content.classList.replace('scale-95', 'scale-100');
-            }, 10);
-        }
-
-        function closeTermsModal() {
-            const modal = document.getElementById('termsModal');
-            const backdrop = document.getElementById('termsModalBackdrop');
-            const content = document.getElementById('termsModalContent');
-            backdrop.classList.replace('opacity-100', 'opacity-0');
-            content.classList.replace('opacity-100', 'opacity-0');
-            content.classList.replace('scale-100', 'scale-95');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
-        }
-
         loadPricelist();
     </script>
-</body>
+<script>function toggleTerms(){document.getElementById('termsContent').classList.toggle('hidden');}</script></body>
 </html>
