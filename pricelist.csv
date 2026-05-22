@@ -1,11 +1,11 @@
 app_name,category,duration,price,notes
-Netflix Premium,SHARING 1P1U,3 Hari,11K,
-Netflix Premium,SHARING 1P1U,5 Hari,14K,
-Netflix Premium,SHARING 1P1U,7 Hari,17K,
-Netflix Premium,SHARING 1P1U,14 Hari,28K,
-Netflix Premium,SHARING 1P1U,1 Bulan,45K,
-Netflix Premium,SHARING 1P2U,1 Bulan,35K,
-Netflix Premium,SEMI PRIVATE,1 Bulan,55K,
+Netflix,SHARING 1P1U,3 Hari,11K,
+Netflix,SHARING 1P1U,5 Hari,14K,
+Netflix,SHARING 1P1U,7 Hari,17K,
+Netflix,SHARING 1P1U,14 Hari,28K,
+Netflix,SHARING 1P1U,1 Bulan,45K,
+Netflix,SHARING 1P2U,1 Bulan,35K,
+Netflix,SEMI PRIVATE,1 Bulan,55K,
 Amazon,SHARING,1 Bulan,15K,
 Amazon,PRIVATE,1 Bulan,35K,
 Vidio,PRIVATE,1 Bulan,45K,All Device
