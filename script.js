@@ -168,8 +168,8 @@ function renderCards(apps) {
 
         const safeName = name.replace(/'/g, "\\'");
         
-        // Pengecekan Netflix & Tombol Info
-        const isNetflix = name.toLowerCase().trim() === 'netflix';
+        // Pengecekan Netflix & Tombol Info (Logika telah diperbarui)
+        const isNetflix = name.toLowerCase().includes('netflix');
         const infoBtnHTML = isNetflix ? `
             <button onclick="openInfoNetflixModal()" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full bg-pink-100 text-pink-500 hover:bg-pink-200 transition-colors ml-2 outline-none shadow-sm" title="Info Tambahan">
                 <span class="font-bold text-xs md:text-sm">i</span>
@@ -194,7 +194,7 @@ function renderCards(apps) {
             <div class="mt-auto pt-5 border-t border-pink-100">
                 <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-3.5 bg-pink-400 text-white text-sm font-bold rounded-xl hover:bg-pink-500 transition-colors shadow-md shadow-pink-200 outline-none">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                    Pilih Paket 🎀
+                    Pilih Paket ✨
                 </button>
             </div>
         `;
@@ -302,7 +302,7 @@ function updateAddBtn() {
     btn.className = "w-full py-3.5 bg-pink-400 hover:bg-pink-500 text-white font-bold rounded-xl transition shadow-md shadow-pink-200 outline-none flex justify-center items-center gap-2";
     btn.innerHTML = `
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-        Tambah ke Keranjang (${total}K) 🌸
+        Tambah ke Keranjang (${total}K) 🛍️
     `;
 }
 
@@ -379,7 +379,7 @@ function renderCartList() {
     const btnCheckout = document.getElementById('btnCheckoutWA');
     
     if(cart.length === 0) {
-        list.innerHTML = `<div class="text-center py-10 text-gray-400 text-sm font-medium">Keranjang masih kosong nih kak... 🛒🎀</div>`;
+        list.innerHTML = `<div class="text-center py-10 text-gray-400 text-sm font-medium">Keranjang masih kosong nih kak... 🌸</div>`;
         document.getElementById('cartGrandTotal').innerText = '0K';
         btnCheckout.disabled = true;
         btnCheckout.classList.replace('from-green-400', 'from-gray-300');
@@ -500,7 +500,7 @@ function closeTermsModal() {
     setTimeout(() => { modal.classList.add('hidden'); }, 300);
 }
 
-// Fungsi Modal Info Netflix (Ditambahkan kembali animasi halus)
+// Fungsi Modal Info Netflix
 function openInfoNetflixModal() {
     const modal = document.getElementById('infoNetflixModal');
     const backdrop = document.getElementById('infoNetflixBackdrop');
