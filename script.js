@@ -160,6 +160,18 @@ function renderCards(apps) {
                 </div>`;
         }
 
+        // --- Memproses dan memunculkan Notes ---
+        let notesHTML = '';
+        if (info.appNotes && info.appNotes.size > 0) {
+            const notesText = Array.from(info.appNotes).join(' | '); 
+            notesHTML = `
+                <div class="mt-3 bg-pink-50 border border-pink-200 rounded-xl p-3 text-[11px] md:text-xs text-pink-500 font-medium flex items-start gap-2 shadow-sm">
+                    <svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="leading-relaxed">${notesText}</span>
+                </div>
+            `;
+        }
+
         const logoUrl = getLogoUrl(name);
         let logoHTML = logoUrl ? `<img src="${logoUrl}" class="w-8 h-8 md:w-9 md:h-9 rounded-lg object-cover bg-white p-0.5 border border-pink-200 shadow-sm" alt="${name}">` : `
                 <div class="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-pink-100 border border-pink-200 flex items-center justify-center text-pink-400 shadow-sm">
@@ -168,7 +180,6 @@ function renderCards(apps) {
 
         const safeName = name.replace(/'/g, "\\'");
         
-        // Pengecekan Netflix & Tombol Info (Logika telah diperbarui)
         const isNetflix = name.toLowerCase().includes('netflix');
         const infoBtnHTML = isNetflix ? `
             <button onclick="openInfoNetflixModal()" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full bg-pink-100 text-pink-500 hover:bg-pink-200 transition-colors ml-2 outline-none shadow-sm" title="Info Tambahan">
@@ -190,7 +201,8 @@ function renderCards(apps) {
                     </div>
                 </div>
             </div>
-            <div class="flex-1 flex flex-col gap-3 mb-6">${packageHTML}</div>
+            <div class="flex-1 flex flex-col gap-3 mb-2">${packageHTML}</div>
+            ${notesHTML} 
             <div class="mt-auto pt-5 border-t border-pink-100">
                 <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-3.5 bg-pink-400 text-white text-sm font-bold rounded-xl hover:bg-pink-500 transition-colors shadow-md shadow-pink-200 outline-none">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
@@ -500,7 +512,6 @@ function closeTermsModal() {
     setTimeout(() => { modal.classList.add('hidden'); }, 300);
 }
 
-// Fungsi Modal Info Netflix
 function openInfoNetflixModal() {
     const modal = document.getElementById('infoNetflixModal');
     const backdrop = document.getElementById('infoNetflixBackdrop');
