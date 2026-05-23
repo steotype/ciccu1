@@ -15,7 +15,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* Mengimpor font Bubble Gum lokal */
@@ -38,7 +38,7 @@
         .font-logo { 
             font-family: 'BubbleGum', cursive; 
             font-weight: normal;
-            letter-spacing: 1px; /* Memberi sedikit jarak agar sangat mudah dibaca */
+            letter-spacing: 1px; 
         }
 
         /* Motif Polkadot berselang-seling Putih, Biru Muda & Pink */
@@ -82,7 +82,7 @@
     <main class="px-6 w-full max-w-md md:max-w-4xl lg:max-w-6xl mx-auto pb-24 relative z-0 pt-8 md:pt-12"> 
         
         <div class="flex flex-col items-center justify-center text-center mb-8 md:mb-10 fade-in-down">
-            <h1 class="font-logo text-5xl md:text-6xl text-pink-500 drop-shadow-sm pb-1">🦋 Ciccu<span class="text-sky-400">Store</span> 🎀</h1>
+            <h1 class="font-logo text-4xl sm:text-5xl md:text-6xl text-pink-500 drop-shadow-sm pb-1 whitespace-nowrap">🦋 Ciccu<span class="text-sky-400">Store</span> 🎀</h1>
             <p class="text-[10px] md:text-xs text-pink-400 font-bold uppercase tracking-[0.2em] mt-2">☁️ Your 100% Trusted Seller ☁️</p>
         </div>
 
@@ -91,7 +91,7 @@
             <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-sky-300/30 blur-2xl rounded-full pointer-events-none md:w-48 md:h-48"></div>
             <div class="p-6 md:p-10 flex flex-col relative z-10 gap-4 text-center md:text-left">
                 <div class="w-full">
-                    <h2 class="font-logo text-3xl md:text-4xl mb-4 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] whitespace-nowrap leading-relaxed pb-1">
+                    <h2 class="font-bold text-2xl sm:text-3xl md:text-4xl mb-4 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] whitespace-nowrap leading-relaxed pb-1">
                         🦋 Premium Apps Pricelist 🎀
                     </h2>
                     <p class="text-[11px] md:text-sm text-gray-500 font-bold leading-relaxed w-full">𓏭 🌷⭐️ 𝗪𝗼𝗿𝗸𝗶𝗲 land . . . 🪽 ♡ !? open 🥣🌱 ꕤ⁺◦ ⌒ 𓈒♡ ぬいぐるみ . . あまぬい 👛 ‧ . ⊹ 𓏭ᱸ♡ ⌗ 🧁 ？あまい 🎀☘️ ⊹ ふわあま 🥛 ♡ !? softie doll 🐰🍭 𓂃 ˚ 𖠗</p>
@@ -225,7 +225,7 @@
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="termsModalBackdrop" onclick="closeTermsModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="termsModalContent">
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
-                <h3 class="font-logo text-2xl text-pink-600 flex items-center gap-2 pb-1">📜 Terms & Conditions</h3>
+                <h3 class="font-bold text-2xl text-pink-600 flex items-center gap-2 pb-1">📜 Terms & Conditions</h3>
                 <button onclick="closeTermsModal()" class="text-pink-300 hover:text-pink-500 transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
             <div class="p-6 bg-white space-y-4 overflow-y-auto custom-scroll max-h-[60vh]">
@@ -262,7 +262,7 @@
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="infoNetflixBackdrop" onclick="closeInfoNetflixModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl p-5 transform scale-95 transition-all duration-300 opacity-0" id="infoNetflixContent">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="font-logo text-xl text-pink-600 flex items-center gap-1.5 pb-1">ℹ️ Info Tambahan Netflix</h3>
+                <h3 class="font-bold text-xl text-pink-600 flex items-center gap-1.5 pb-1">ℹ️ Info Tambahan Netflix</h3>
                 <button onclick="closeInfoNetflixModal()" class="text-pink-300 hover:text-pink-500 transition outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
