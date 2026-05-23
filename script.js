@@ -211,7 +211,7 @@ function renderCards(apps) {
             <div class="mt-auto pt-3 border-t border-pink-200/50">
                 <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-2.5 bg-pink-400 text-white text-sm font-black rounded-xl hover:bg-pink-500 transition-colors shadow-sm outline-none">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                    Pilih Paket ✨
+                    Pilih Paket 𓏲ּ𝄢
                 </button>
             </div>
         `;
@@ -269,7 +269,7 @@ function openOrderModal(appName) {
     const btn = document.getElementById('btnProcessOrder');
     btn.disabled = true;
     btn.className = "w-full py-3.5 bg-pink-100 text-pink-500 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2";
-    btn.innerHTML = "Pilih Paket Dulu 🦄";
+    btn.innerHTML = "Pilih Paket Dulu 𓏲ּ𝄢";
 
     const modal = document.getElementById('orderModal');
     const backdrop = document.getElementById('orderModalBackdrop');
