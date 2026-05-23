@@ -90,7 +90,6 @@ async function loadPricelist() {
             if (!apps[appName]) { apps[appName] = { categories: {} }; }
             if (!apps[appName].categories[category]) { apps[appName].categories[category] = []; }
             
-            // Notes kini disimpan per baris item, bukan digabung
             const itemNotes = (notes && notes.toLowerCase() !== 'nan') ? notes : '';
             apps[appName].categories[category].push({ duration, price, notes: itemNotes });
         });
@@ -150,7 +149,6 @@ function renderCards(apps) {
             let itemsHTML = '';
             items.forEach(item => {
                 
-                // Format UI untuk Notes di bawah tiap baris
                 let noteHTML = '';
                 if (item.notes) {
                     noteHTML = `
@@ -162,7 +160,7 @@ function renderCards(apps) {
                 }
 
                 itemsHTML += `
-                    <div class="mb-1.5 last:mb-0 hover:bg-pink-100/50 p-1.5 rounded-lg transition-colors">
+                    <div class="mb-1.5 last:mb-0 hover:bg-pink-50/80 p-1.5 rounded-lg transition-colors">
                         <div class="flex justify-between items-center text-sm">
                             <span class="text-gray-500 font-medium">${item.duration}</span>
                             <span class="text-gray-800 font-bold">${item.price}</span>
@@ -170,8 +168,10 @@ function renderCards(apps) {
                         ${noteHTML}
                     </div>`;
             });
+            
+            // Wrapper bernuansa solid pink yang sangat lembut di atas card pink
             packageHTML += `
-                <div class="bg-pink-50/50 rounded-xl p-4 border border-pink-100 h-full">
+                <div class="bg-pink-50/80 rounded-xl p-4 border border-pink-100 h-full">
                     <div class="text-[11px] text-pink-500 font-bold uppercase tracking-widest mb-3 border-b border-pink-200/60 pb-1.5">${categoryName}</div>
                     ${itemsHTML}
                 </div>`;
@@ -179,7 +179,7 @@ function renderCards(apps) {
 
         const logoUrl = getLogoUrl(name);
         let logoHTML = logoUrl ? `<img src="${logoUrl}" class="w-8 h-8 md:w-9 md:h-9 rounded-lg object-cover bg-white p-0.5 border border-pink-200 shadow-sm" alt="${name}">` : `
-                <div class="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-pink-100 border border-pink-200 flex items-center justify-center text-pink-400 shadow-sm">
+                <div class="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-400 shadow-sm">
                     <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                 </div>`;
 
@@ -193,7 +193,8 @@ function renderCards(apps) {
         ` : '';
 
         const card = document.createElement('div');
-        card.className = 'card flex flex-col bg-white border border-pink-200 rounded-2xl p-6 shadow-xl shadow-pink-100/40 transition-all duration-300 hover:-translate-y-1 hover:border-pink-300 hover:shadow-pink-200 hover:shadow-2xl fade-in-down';
+        // Card wrapper bernuansa pink lembut
+        card.className = 'card flex flex-col bg-pink-100 border border-pink-200 rounded-2xl p-6 shadow-xl shadow-pink-100/40 transition-all duration-300 hover:-translate-y-1 hover:border-pink-300 hover:shadow-pink-200 hover:shadow-2xl fade-in-down';
         card.style.animationDelay = `${delay}s`;
         
         card.innerHTML = `
@@ -242,21 +243,20 @@ function openOrderModal(appName) {
         items.forEach((item, index) => {
             const pkgId = `pkg-${cat.replace(/[^a-zA-Z0-9]/g, '-')}-${index}`;
             
-            // Notes dimunculkan juga di dalam list pilihan paket modal
             let modalNoteHTML = '';
             if (item.notes) {
                 modalNoteHTML = `<p class="text-[10px] text-pink-400 italic mt-1 leading-tight flex gap-1"><span class="text-pink-300">↳</span> ${item.notes}</p>`;
             }
 
             html += `
-                <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border border-pink-200 bg-pink-50/50 p-4 rounded-xl cursor-pointer hover:border-pink-400 transition-all flex justify-between items-center group">
+                <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border border-pink-200 bg-white p-4 rounded-xl cursor-pointer hover:border-pink-400 transition-all flex justify-between items-center group">
                     <div class="flex-1 pr-3">
                         <p class="text-[11px] text-pink-400 font-bold uppercase tracking-widest mb-1">${cat}</p>
                         <p class="text-sm font-bold text-gray-600 group-hover:text-gray-800 transition-colors">${item.duration}</p>
                         ${modalNoteHTML}
                     </div>
                     <div class="flex items-center gap-3">
-                        <p class="font-bold text-gray-800 text-lg">${item.price}</p>
+                        <p class="font-bold text-pink-600 text-lg">${item.price}</p>
                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center check-indicator transition-colors bg-white flex-shrink-0"></div>
                     </div>
                 </div>
@@ -267,7 +267,7 @@ function openOrderModal(appName) {
     
     const btn = document.getElementById('btnProcessOrder');
     btn.disabled = true;
-    btn.className = "w-full py-3.5 bg-pink-100 text-pink-400 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2";
+    btn.className = "w-full py-3.5 bg-pink-100 text-pink-500 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2";
     btn.innerHTML = "Pilih Paket Dulu 🦄";
 
     const modal = document.getElementById('orderModal');
@@ -281,8 +281,8 @@ function selectPackage(pkgId, cat, dur, price) {
     selectedPackage = { app: currentOrderApp, cat, dur, price };
     
     document.querySelectorAll('.package-option').forEach(el => {
-        el.classList.remove('border-pink-400', 'bg-pink-100');
-        el.classList.add('border-pink-200', 'bg-pink-50/50');
+        el.classList.remove('border-pink-400', 'bg-pink-50');
+        el.classList.add('border-pink-200', 'bg-white');
         const check = el.querySelector('.check-indicator');
         check.innerHTML = '';
         check.classList.replace('border-pink-500', 'border-gray-300');
@@ -291,8 +291,8 @@ function selectPackage(pkgId, cat, dur, price) {
     });
 
     const selectedEl = document.getElementById(pkgId);
-    selectedEl.classList.remove('border-pink-200', 'bg-pink-50/50');
-    selectedEl.classList.add('border-pink-400', 'bg-pink-100');
+    selectedEl.classList.remove('border-pink-200', 'bg-white');
+    selectedEl.classList.add('border-pink-400', 'bg-pink-50');
     
     const check = selectedEl.querySelector('.check-indicator');
     check.classList.replace('border-gray-300', 'border-pink-500');
@@ -403,7 +403,7 @@ function renderCartList() {
     const btnCheckout = document.getElementById('btnCheckoutWA');
     
     if(cart.length === 0) {
-        list.innerHTML = `<div class="text-center py-10 text-gray-400 text-sm font-medium">Keranjang masih kosong nih kak... 🌸</div>`;
+        list.innerHTML = `<div class="text-center py-10 text-pink-400 text-sm font-medium">Keranjang masih kosong nih kak... 🌸</div>`;
         document.getElementById('cartGrandTotal').innerText = '0K';
         btnCheckout.disabled = true;
         btnCheckout.classList.replace('from-green-400', 'from-gray-300');
@@ -425,7 +425,7 @@ function renderCartList() {
         grandTotalK += itemTotalK;
 
         html += `
-            <div class="flex justify-between items-center bg-pink-50 p-4 rounded-xl border border-pink-200 mb-3">
+            <div class="flex justify-between items-center bg-white p-4 rounded-xl border border-pink-200 mb-3">
                 <div class="flex-1">
                     <h4 class="text-gray-800 font-bold text-sm mb-1">${item.app} <span class="text-xs font-normal text-gray-500">(${item.dur})</span></h4>
                     <p class="text-[10px] text-pink-400 uppercase font-bold tracking-wider mb-2">${item.cat}</p>
