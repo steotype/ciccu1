@@ -152,15 +152,16 @@ function renderCards(apps) {
                 let noteHTML = '';
                 if (item.notes) {
                     noteHTML = `
-                        <div class="text-[10px] text-pink-400/90 mt-1 flex items-start gap-1">
+                        <div class="text-[10px] text-pink-400/90 mt-0.5 flex items-start gap-1">
                             <span class="font-bold text-pink-300">↳</span>
                             <span class="italic leading-tight">${item.notes}</span>
                         </div>
                     `;
                 }
 
+                // Mengurangi padding bawah (p-1.5 -> p-1 & mb-1.5 -> mb-1)
                 itemsHTML += `
-                    <div class="mb-1.5 last:mb-0 hover:bg-pink-50/80 p-1.5 rounded-lg transition-colors">
+                    <div class="mb-1 last:mb-0 hover:bg-pink-100/50 p-1.5 rounded-lg transition-colors">
                         <div class="flex justify-between items-center text-sm">
                             <span class="text-gray-500 font-medium">${item.duration}</span>
                             <span class="text-gray-800 font-bold">${item.price}</span>
@@ -168,18 +169,18 @@ function renderCards(apps) {
                         ${noteHTML}
                     </div>`;
             });
-            
-            // Wrapper bernuansa solid pink yang sangat lembut di atas card pink
+            // Mengecilkan padding card paket (p-4 -> p-3)
             packageHTML += `
-                <div class="bg-pink-50/80 rounded-xl p-4 border border-pink-100 h-full">
-                    <div class="text-[11px] text-pink-500 font-bold uppercase tracking-widest mb-3 border-b border-pink-200/60 pb-1.5">${categoryName}</div>
+                <div class="bg-pink-50/50 rounded-xl p-3 border border-pink-100 h-full">
+                    <div class="text-[11px] text-pink-500 font-bold uppercase tracking-widest mb-2 border-b border-pink-200/60 pb-1.5">${categoryName}</div>
                     ${itemsHTML}
                 </div>`;
         }
 
+        // Sedikit menyesuaikan ukuran logo
         const logoUrl = getLogoUrl(name);
-        let logoHTML = logoUrl ? `<img src="${logoUrl}" class="w-8 h-8 md:w-9 md:h-9 rounded-lg object-cover bg-white p-0.5 border border-pink-200 shadow-sm" alt="${name}">` : `
-                <div class="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-400 shadow-sm">
+        let logoHTML = logoUrl ? `<img src="${logoUrl}" class="w-7 h-7 md:w-8 md:h-8 rounded-lg object-cover bg-white p-0.5 border border-pink-200 shadow-sm" alt="${name}">` : `
+                <div class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-pink-100 border border-pink-200 flex items-center justify-center text-pink-400 shadow-sm">
                     <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                 </div>`;
 
@@ -187,29 +188,30 @@ function renderCards(apps) {
         
         const isNetflix = name.toLowerCase().includes('netflix');
         const infoBtnHTML = isNetflix ? `
-            <button onclick="openInfoNetflixModal()" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full bg-pink-100 text-pink-500 hover:bg-pink-200 transition-colors ml-2 outline-none shadow-sm" title="Info Tambahan">
-                <span class="font-bold text-xs md:text-sm">i</span>
+            <button onclick="openInfoNetflixModal()" class="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full bg-pink-100 text-pink-500 hover:bg-pink-200 transition-colors ml-2 outline-none shadow-sm" title="Info Tambahan">
+                <span class="font-bold text-[10px] md:text-xs">i</span>
             </button>
         ` : '';
 
         const card = document.createElement('div');
-        // Card wrapper bernuansa pink lembut
-        card.className = 'card flex flex-col bg-pink-100 border border-pink-200 rounded-2xl p-6 shadow-xl shadow-pink-100/40 transition-all duration-300 hover:-translate-y-1 hover:border-pink-300 hover:shadow-pink-200 hover:shadow-2xl fade-in-down';
+        // Mengecilkan padding utama card (p-6 -> p-5)
+        card.className = 'card flex flex-col bg-pink-100 border border-pink-200 rounded-2xl p-5 shadow-xl shadow-pink-100/40 transition-all duration-300 hover:-translate-y-1 hover:border-pink-300 hover:shadow-pink-200 hover:shadow-2xl fade-in-down';
         card.style.animationDelay = `${delay}s`;
         
+        // Memadatkan jarak margin & padding antar pembatas (garis)
         card.innerHTML = `
-            <div class="mb-5 pb-5 border-b border-pink-100 flex items-center justify-between">
-                <div class="flex items-center gap-3">
+            <div class="mb-3 pb-3 border-b border-pink-200/70 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
                     ${logoHTML}
                     <div class="flex items-center">
-                        <h2 class="text-xl md:text-2xl font-black text-pink-600 uppercase tracking-tight">${name}</h2>
+                        <h2 class="text-lg md:text-xl font-black text-pink-600 uppercase tracking-tight">${name}</h2>
                         ${infoBtnHTML}
                     </div>
                 </div>
             </div>
-            <div class="flex-1 flex flex-col gap-3 mb-6">${packageHTML}</div>
-            <div class="mt-auto pt-5 border-t border-pink-100">
-                <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-3.5 bg-pink-400 text-white text-sm font-bold rounded-xl hover:bg-pink-500 transition-colors shadow-md shadow-pink-200 outline-none">
+            <div class="flex-1 flex flex-col gap-2.5 mb-4">${packageHTML}</div>
+            <div class="mt-auto pt-3 border-t border-pink-200/70">
+                <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-2.5 bg-pink-400 text-white text-sm font-bold rounded-xl hover:bg-pink-500 transition-colors shadow-sm outline-none">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     Pilih Paket ✨
                 </button>
@@ -249,14 +251,14 @@ function openOrderModal(appName) {
             }
 
             html += `
-                <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border border-pink-200 bg-white p-4 rounded-xl cursor-pointer hover:border-pink-400 transition-all flex justify-between items-center group">
+                <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border border-pink-200 bg-pink-50/50 p-4 rounded-xl cursor-pointer hover:border-pink-400 transition-all flex justify-between items-center group">
                     <div class="flex-1 pr-3">
                         <p class="text-[11px] text-pink-400 font-bold uppercase tracking-widest mb-1">${cat}</p>
                         <p class="text-sm font-bold text-gray-600 group-hover:text-gray-800 transition-colors">${item.duration}</p>
                         ${modalNoteHTML}
                     </div>
                     <div class="flex items-center gap-3">
-                        <p class="font-bold text-pink-600 text-lg">${item.price}</p>
+                        <p class="font-bold text-gray-800 text-lg">${item.price}</p>
                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center check-indicator transition-colors bg-white flex-shrink-0"></div>
                     </div>
                 </div>
@@ -267,7 +269,7 @@ function openOrderModal(appName) {
     
     const btn = document.getElementById('btnProcessOrder');
     btn.disabled = true;
-    btn.className = "w-full py-3.5 bg-pink-100 text-pink-500 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2";
+    btn.className = "w-full py-3.5 bg-pink-100 text-pink-400 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2";
     btn.innerHTML = "Pilih Paket Dulu 🦄";
 
     const modal = document.getElementById('orderModal');
@@ -281,8 +283,8 @@ function selectPackage(pkgId, cat, dur, price) {
     selectedPackage = { app: currentOrderApp, cat, dur, price };
     
     document.querySelectorAll('.package-option').forEach(el => {
-        el.classList.remove('border-pink-400', 'bg-pink-50');
-        el.classList.add('border-pink-200', 'bg-white');
+        el.classList.remove('border-pink-400', 'bg-pink-100');
+        el.classList.add('border-pink-200', 'bg-pink-50/50');
         const check = el.querySelector('.check-indicator');
         check.innerHTML = '';
         check.classList.replace('border-pink-500', 'border-gray-300');
@@ -291,8 +293,8 @@ function selectPackage(pkgId, cat, dur, price) {
     });
 
     const selectedEl = document.getElementById(pkgId);
-    selectedEl.classList.remove('border-pink-200', 'bg-white');
-    selectedEl.classList.add('border-pink-400', 'bg-pink-50');
+    selectedEl.classList.remove('border-pink-200', 'bg-pink-50/50');
+    selectedEl.classList.add('border-pink-400', 'bg-pink-100');
     
     const check = selectedEl.querySelector('.check-indicator');
     check.classList.replace('border-gray-300', 'border-pink-500');
@@ -403,7 +405,7 @@ function renderCartList() {
     const btnCheckout = document.getElementById('btnCheckoutWA');
     
     if(cart.length === 0) {
-        list.innerHTML = `<div class="text-center py-10 text-pink-400 text-sm font-medium">Keranjang masih kosong nih kak... 🌸</div>`;
+        list.innerHTML = `<div class="text-center py-10 text-gray-400 text-sm font-medium">Keranjang masih kosong nih kak... 🌸</div>`;
         document.getElementById('cartGrandTotal').innerText = '0K';
         btnCheckout.disabled = true;
         btnCheckout.classList.replace('from-green-400', 'from-gray-300');
@@ -425,7 +427,7 @@ function renderCartList() {
         grandTotalK += itemTotalK;
 
         html += `
-            <div class="flex justify-between items-center bg-white p-4 rounded-xl border border-pink-200 mb-3">
+            <div class="flex justify-between items-center bg-pink-50 p-4 rounded-xl border border-pink-200 mb-3">
                 <div class="flex-1">
                     <h4 class="text-gray-800 font-bold text-sm mb-1">${item.app} <span class="text-xs font-normal text-gray-500">(${item.dur})</span></h4>
                     <p class="text-[10px] text-pink-400 uppercase font-bold tracking-wider mb-2">${item.cat}</p>
