@@ -17,14 +17,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg,#fff1f7,#ffe4ef,#fff0f6); }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            /* Gradient background memadukan baby blue dan soft pink */
+            background: linear-gradient(135deg, #e0f2fe, #fce7f3, #e0f2fe); 
+            background-attachment: fixed;
+        }
+        /* Motif Polkadot berselang-seling Putih, Biru Muda & Pink */
         body::before {
-            content:'';position:fixed;inset:0;pointer-events:none;
+            content:'';
+            position:fixed;
+            inset:0;
+            pointer-events:none;
             background-image:
-            radial-gradient(circle at 15% 20%, rgba(244,114,182,.15) 3px, transparent 3px),
-            radial-gradient(circle at 80% 30%, rgba(251,146,60,.08) 3px, transparent 3px),
-            radial-gradient(circle at 40% 80%, rgba(244,114,182,.15) 3px, transparent 3px);
-            background-size:90px 90px;
+                radial-gradient(circle, #ffffff 3px, transparent 4px),
+                radial-gradient(circle, rgba(125, 211, 252, 0.6) 3px, transparent 4px),
+                radial-gradient(circle, rgba(244, 114, 182, 0.4) 3px, transparent 4px);
+            background-size: 45px 45px;
+            background-position: 0 0, 15px 15px, 30px 30px;
+            z-index: -1;
         }
         .font-fredoka { font-family: 'Fredoka', sans-serif; }
         .floaty { animation:floaty 3s ease-in-out infinite; }
@@ -34,42 +45,44 @@
     
         .fade-in-down { animation: fadeInDown 0.5s ease-out forwards; opacity: 0; transform: translateY(-15px); }
         @keyframes fadeInDown { to { opacity: 1; transform: translateY(0); } }
-        .loader { border: 3px solid rgba(236, 72, 153, 0.2); border-left-color: #ec4899; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
+        /* Loader pinkish */
+        .loader { border: 3px solid rgba(244, 114, 182, 0.3); border-left-color: #ec4899; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .custom-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 4px; }
     </style>
 </head>
-<body class="bg-pink-50 text-gray-800 min-h-screen relative font-sans overflow-x-hidden">
+<body class="text-gray-800 min-h-screen relative font-sans overflow-x-hidden">
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      <div class="absolute top-10 left-10 text-4xl opacity-20 animate-bounce">🎀</div>
-      <div class="absolute top-40 right-20 text-3xl opacity-20 animate-pulse">🌸</div>
-      <div class="absolute bottom-20 left-20 text-4xl opacity-20 animate-bounce">🧸</div>
-      <div class="absolute bottom-40 right-10 text-3xl opacity-20 animate-pulse">✨</div>
+      <div class="absolute top-10 left-10 text-4xl opacity-30 animate-bounce">🦋</div>
+      <div class="absolute top-40 right-20 text-3xl opacity-30 animate-pulse">🌸</div>
+      <div class="absolute bottom-20 left-20 text-4xl opacity-30 animate-bounce">🎀</div>
+      <div class="absolute bottom-40 right-10 text-3xl opacity-30 animate-pulse">☁️</div>
     </div>
 
     <main class="px-6 w-full max-w-md md:max-w-4xl lg:max-w-6xl mx-auto pb-24 relative z-0 pt-8 md:pt-12"> 
         
         <div class="flex flex-col items-center justify-center text-center mb-8 md:mb-10 fade-in-down">
-            <h1 class="text-4xl md:text-5xl font-black italic tracking-tighter text-pink-500 leading-none drop-shadow-sm">🎀 Ciccu<span class="text-pink-300">Store</span> 🧸</h1>
-            <p class="text-[10px] md:text-xs text-pink-400 font-bold uppercase tracking-[0.2em] mt-2.5">🌸 Your 100% Trusted Seller 🌸</p>
+            <h1 class="text-4xl md:text-5xl font-black italic tracking-tighter text-pink-500 leading-none drop-shadow-sm">🦋 Ciccu<span class="text-sky-400">Store</span> 🎀</h1>
+            <p class="text-[10px] md:text-xs text-pink-400 font-bold uppercase tracking-[0.2em] mt-2.5">☁️ Your 100% Trusted Seller ☁️</p>
         </div>
 
-        <div class="fade-in-down mb-6 md:mb-10 relative overflow-hidden bg-white border border-pink-200 rounded-[2rem] shadow-xl shadow-pink-100/50">
-            <div class="absolute -top-16 -right-16 w-40 h-40 bg-pink-300/30 blur-3xl rounded-full pointer-events-none md:w-64 md:h-64"></div>
+        <div class="fade-in-down mb-6 md:mb-10 relative overflow-hidden bg-pink-100 border border-pink-200 rounded-[2rem] shadow-xl shadow-pink-100/50">
+            <div class="absolute -top-16 -right-16 w-40 h-40 bg-pink-300/40 blur-3xl rounded-full pointer-events-none md:w-64 md:h-64"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-sky-300/30 blur-2xl rounded-full pointer-events-none md:w-48 md:h-48"></div>
             <div class="p-6 md:p-10 flex flex-col relative z-10 gap-4 text-center md:text-left">
                 <div class="w-full">
-                    <h2 class="font-fredoka text-[19px] sm:text-2xl md:text-4xl mb-3 text-pink-500 drop-shadow-[0_2px_10px_rgba(236,72,153,0.15)] tracking-wide whitespace-nowrap">
-                        🎀 Premium Apps Pricelist 🎀
+                    <h2 class="font-fredoka text-[19px] sm:text-2xl md:text-4xl mb-3 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] tracking-wide whitespace-nowrap">
+                        🦋 Premium Apps Pricelist 🎀
                     </h2>
                     <p class="text-[11px] md:text-sm text-gray-500 font-medium leading-relaxed w-full">𓏭 🌷⭐️ 𝗪𝗼𝗿𝗸𝗶𝗲 land . . . 🪽 ♡ !? open 🥣🌱 ꕤ⁺◦ ⌒ 𓈒♡ ぬいぐるみ . . あまぬい 👛 ‧ . ⊹ 𓏭ᱸ♡ ⌗ 🧁 ？あまい 🎀☘️ ⊹ ふわあま 🥛 ♡ !? softie doll 🐰🍭 𓂃 ˚ 𖠗</p>
                 </div>
                 
                 <div class="flex flex-col sm:flex-row gap-3 mt-2">
-                    <button onclick="openLoyaltyModal()" class="flex-1 py-3 px-4 bg-pink-50 border border-pink-200 rounded-2xl text-pink-500 font-bold hover:bg-pink-100 transition-colors shadow-sm outline-none flex items-center justify-center gap-2">
+                    <button onclick="openLoyaltyModal()" class="flex-1 py-3 px-4 bg-pink-200/80 border border-pink-200 rounded-2xl text-pink-600 font-bold hover:bg-pink-300/80 transition-colors shadow-sm outline-none flex items-center justify-center gap-2">
                         🎁 Loyalty Card
                     </button>
-                    <button onclick="openTermsModal()" class="flex-1 py-3 px-4 bg-white border border-pink-200 rounded-2xl text-pink-400 font-bold hover:bg-pink-50 transition-colors shadow-sm outline-none flex items-center justify-center gap-2">
+                    <button onclick="openTermsModal()" class="flex-1 py-3 px-4 bg-white/80 border border-pink-200 rounded-2xl text-pink-400 font-bold hover:bg-white transition-colors shadow-sm outline-none flex items-center justify-center gap-2">
                         📜 T&C
                     </button>
                 </div>
@@ -86,7 +99,7 @@
             </div>
 
             <div class="relative w-full md:w-80 lg:w-96 flex-shrink-0">
-                <input type="text" id="searchInput" oninput="applyFilters()" class="w-full h-[52px] bg-white border border-pink-200 text-gray-800 text-sm rounded-2xl block pl-12 pr-4 py-3 outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition-colors shadow-sm" placeholder="Cari aplikasi favoritmu... 🍓✨">
+                <input type="text" id="searchInput" oninput="applyFilters()" class="w-full h-[52px] bg-pink-50 border border-pink-200 text-gray-800 text-sm rounded-2xl block pl-12 pr-4 py-3 outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition-colors shadow-sm" placeholder="Cari aplikasi favoritmu... 🎀✨">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
                     <svg class="w-5 h-5 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
@@ -95,12 +108,12 @@
 
         <div id="statusMessage" class="flex flex-col items-center justify-center py-10 space-y-3">
             <div class="loader"></div>
-            <p class="text-sm text-pink-400 font-medium tracking-wide">Menarik data dari server... ☁️🌸</p>
+            <p class="text-sm text-pink-500 font-medium tracking-wide">Menarik data dari server... ☁️🌸</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="pricingGrid">
             <div id="noResults" class="hidden col-span-full text-center py-12 fade-in-down max-w-md mx-auto w-full">
-                <div class="bg-pink-100/50 rounded-2xl p-8 border border-pink-200 inline-block w-full text-center">
+                <div class="bg-pink-50/80 rounded-2xl p-8 border border-pink-200 inline-block w-full text-center">
                     <p class="text-pink-500 text-sm font-medium">Aplikasi tidak ditemukan di kategori ini 🥺</p>
                 </div>
             </div>
@@ -140,7 +153,7 @@
                     </div>
                 </div>
 
-                <button onclick="addToCart()" id="btnProcessOrder" disabled class="w-full py-3.5 bg-pink-100 text-pink-400 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2">
+                <button onclick="addToCart()" id="btnProcessOrder" disabled class="w-full py-3.5 bg-pink-100 text-pink-500 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2">
                     Pilih Paket Dulu 🦄
                 </button>
             </div>
