@@ -159,25 +159,23 @@ function renderCards(apps) {
                     `;
                 }
 
-                // Mengurangi padding bawah (p-1.5 -> p-1 & mb-1.5 -> mb-1)
                 itemsHTML += `
-                    <div class="mb-1 last:mb-0 hover:bg-pink-100/50 p-1.5 rounded-lg transition-colors">
+                    <div class="mb-1 last:mb-0 hover:bg-pink-200/50 p-1.5 rounded-lg transition-colors">
                         <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-500 font-medium">${item.duration}</span>
-                            <span class="text-gray-800 font-bold">${item.price}</span>
+                            <span class="text-gray-600 font-bold">${item.duration}</span>
+                            <span class="text-gray-800 font-black">${item.price}</span>
                         </div>
                         ${noteHTML}
                     </div>`;
             });
-            // Mengecilkan padding card paket (p-4 -> p-3)
+
             packageHTML += `
                 <div class="bg-pink-50/50 rounded-xl p-3 border border-pink-100 h-full">
-                    <div class="text-[11px] text-pink-500 font-bold uppercase tracking-widest mb-2 border-b border-pink-200/60 pb-1.5">${categoryName}</div>
+                    <div class="text-[11px] text-pink-500 font-black uppercase tracking-widest mb-2 border-b border-pink-200/60 pb-1.5">${categoryName}</div>
                     ${itemsHTML}
                 </div>`;
         }
 
-        // Sedikit menyesuaikan ukuran logo
         const logoUrl = getLogoUrl(name);
         let logoHTML = logoUrl ? `<img src="${logoUrl}" class="w-7 h-7 md:w-8 md:h-8 rounded-lg object-cover bg-white p-0.5 border border-pink-200 shadow-sm" alt="${name}">` : `
                 <div class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-pink-100 border border-pink-200 flex items-center justify-center text-pink-400 shadow-sm">
@@ -186,32 +184,32 @@ function renderCards(apps) {
 
         const safeName = name.replace(/'/g, "\\'");
         
+        // Logika Tombol Info sekarang digabung di dalam bubble judul
         const isNetflix = name.toLowerCase().includes('netflix');
         const infoBtnHTML = isNetflix ? `
-            <button onclick="openInfoNetflixModal()" class="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full bg-pink-100 text-pink-500 hover:bg-pink-200 transition-colors ml-2 outline-none shadow-sm" title="Info Tambahan">
-                <span class="font-bold text-[10px] md:text-xs">i</span>
+            <button onclick="openInfoNetflixModal()" class="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full bg-pink-400 text-white hover:bg-pink-500 transition-colors ml-2 outline-none shadow-sm" title="Info Tambahan">
+                <span class="font-black text-[10px] md:text-xs">i</span>
             </button>
         ` : '';
 
         const card = document.createElement('div');
-        // Mengecilkan padding utama card (p-6 -> p-5)
-        card.className = 'card flex flex-col bg-pink-100 border border-pink-200 rounded-2xl p-5 shadow-xl shadow-pink-100/40 transition-all duration-300 hover:-translate-y-1 hover:border-pink-300 hover:shadow-pink-200 hover:shadow-2xl fade-in-down';
+        card.className = 'card flex flex-col bg-pink-100 border border-pink-200 rounded-2xl p-5 shadow-xl shadow-pink-100/40 transition-all duration-300 hover:-translate-y-1 hover:border-pink-300 fade-in-down';
         card.style.animationDelay = `${delay}s`;
         
-        // Memadatkan jarak margin & padding antar pembatas (garis)
+        // Perubahan Header Card: Ikon kupu-kupu dihapus, Judul diberi bubble background, Tombol i nempel judul
         card.innerHTML = `
-            <div class="mb-3 pb-3 border-b border-pink-200/70 flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
+            <div class="mb-4 flex items-center">
+                <div class="flex items-center gap-2 bg-white/70 px-4 py-2 rounded-2xl border border-pink-200 shadow-sm">
                     ${logoHTML}
                     <div class="flex items-center">
-                        <h2 class="text-lg md:text-xl font-black text-pink-600 uppercase tracking-tight">${name}</h2>
+                        <h2 class="text-lg md:text-xl font-black text-pink-600 uppercase tracking-tight whitespace-nowrap">${name}</h2>
                         ${infoBtnHTML}
                     </div>
                 </div>
             </div>
             <div class="flex-1 flex flex-col gap-2.5 mb-4">${packageHTML}</div>
-            <div class="mt-auto pt-3 border-t border-pink-200/70">
-                <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-2.5 bg-pink-400 text-white text-sm font-bold rounded-xl hover:bg-pink-500 transition-colors shadow-sm outline-none">
+            <div class="mt-auto pt-3 border-t border-pink-200/50">
+                <button onclick="openOrderModal('${safeName}')" class="w-full flex items-center justify-center gap-2 py-2.5 bg-pink-400 text-white text-sm font-black rounded-xl hover:bg-pink-500 transition-colors shadow-sm outline-none">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     Pilih Paket ✨
                 </button>
@@ -222,6 +220,7 @@ function renderCards(apps) {
     }
 }
 
+// Sisa fungsi (cart, qty, modal, checkout) tetap sama...
 let cart = []; 
 let currentOrderApp = '';
 let selectedPackage = null;
@@ -251,14 +250,14 @@ function openOrderModal(appName) {
             }
 
             html += `
-                <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border border-pink-200 bg-pink-50/50 p-4 rounded-xl cursor-pointer hover:border-pink-400 transition-all flex justify-between items-center group">
+                <div id="${pkgId}" onclick="selectPackage('${pkgId}', '${cat}', '${item.duration}', '${item.price}')" class="package-option border border-pink-200 bg-white p-4 rounded-xl cursor-pointer hover:border-pink-400 transition-all flex justify-between items-center group">
                     <div class="flex-1 pr-3">
                         <p class="text-[11px] text-pink-400 font-bold uppercase tracking-widest mb-1">${cat}</p>
                         <p class="text-sm font-bold text-gray-600 group-hover:text-gray-800 transition-colors">${item.duration}</p>
                         ${modalNoteHTML}
                     </div>
                     <div class="flex items-center gap-3">
-                        <p class="font-bold text-gray-800 text-lg">${item.price}</p>
+                        <p class="font-bold text-pink-600 text-lg">${item.price}</p>
                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center check-indicator transition-colors bg-white flex-shrink-0"></div>
                     </div>
                 </div>
@@ -269,7 +268,7 @@ function openOrderModal(appName) {
     
     const btn = document.getElementById('btnProcessOrder');
     btn.disabled = true;
-    btn.className = "w-full py-3.5 bg-pink-100 text-pink-400 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2";
+    btn.className = "w-full py-3.5 bg-pink-100 text-pink-500 cursor-not-allowed font-bold rounded-xl transition shadow-sm outline-none flex justify-center items-center gap-2";
     btn.innerHTML = "Pilih Paket Dulu 🦄";
 
     const modal = document.getElementById('orderModal');
@@ -283,8 +282,8 @@ function selectPackage(pkgId, cat, dur, price) {
     selectedPackage = { app: currentOrderApp, cat, dur, price };
     
     document.querySelectorAll('.package-option').forEach(el => {
-        el.classList.remove('border-pink-400', 'bg-pink-100');
-        el.classList.add('border-pink-200', 'bg-pink-50/50');
+        el.classList.remove('border-pink-400', 'bg-pink-50');
+        el.classList.add('border-pink-200', 'bg-white');
         const check = el.querySelector('.check-indicator');
         check.innerHTML = '';
         check.classList.replace('border-pink-500', 'border-gray-300');
@@ -293,8 +292,8 @@ function selectPackage(pkgId, cat, dur, price) {
     });
 
     const selectedEl = document.getElementById(pkgId);
-    selectedEl.classList.remove('border-pink-200', 'bg-pink-50/50');
-    selectedEl.classList.add('border-pink-400', 'bg-pink-100');
+    selectedEl.classList.remove('border-pink-200', 'bg-white');
+    selectedEl.classList.add('border-pink-400', 'bg-pink-50');
     
     const check = selectedEl.querySelector('.check-indicator');
     check.classList.replace('border-gray-300', 'border-pink-500');
@@ -405,7 +404,7 @@ function renderCartList() {
     const btnCheckout = document.getElementById('btnCheckoutWA');
     
     if(cart.length === 0) {
-        list.innerHTML = `<div class="text-center py-10 text-gray-400 text-sm font-medium">Keranjang masih kosong nih kak... 🌸</div>`;
+        list.innerHTML = `<div class="text-center py-10 text-pink-400 text-sm font-medium">Keranjang masih kosong nih kak... 🌸</div>`;
         document.getElementById('cartGrandTotal').innerText = '0K';
         btnCheckout.disabled = true;
         btnCheckout.classList.replace('from-green-400', 'from-gray-300');
