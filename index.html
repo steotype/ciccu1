@@ -14,15 +14,33 @@
     <meta name="twitter:image" content="https://raw.githubusercontent.com/steotype/steotype/e2b7df9199d8a9fff23b53e6885da69938fcc171/linkp.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Mengimpor font Bubble Gum lokal */
+        @font-face {
+            font-family: 'BubbleGum';
+            src: url('bubblegum.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body { 
-            font-family: 'Inter', sans-serif; 
+            /* Font Quicksand diaplikasikan ke seluruh body (pricelist, tombol, teks) */
+            font-family: 'Quicksand', sans-serif; 
             /* Gradient background memadukan baby blue dan soft pink */
             background: linear-gradient(135deg, #e0f2fe, #fce7f3, #e0f2fe); 
             background-attachment: fixed;
         }
+        
+        /* Font khusus untuk Logo & Judul Utama menggunakan Bubble Gum */
+        .font-logo { 
+            font-family: 'BubbleGum', cursive; 
+            font-weight: normal;
+            letter-spacing: 1px; /* Memberi sedikit jarak agar sangat mudah dibaca */
+        }
+
         /* Motif Polkadot berselang-seling Putih, Biru Muda & Pink */
         body::before {
             content:'';
@@ -37,7 +55,7 @@
             background-position: 0 0, 15px 15px, 30px 30px;
             z-index: -1;
         }
-        .font-fredoka { font-family: 'Fredoka', sans-serif; }
+        
         .floaty { animation:floaty 3s ease-in-out infinite; }
         @keyframes floaty { 0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)} }
         .card { position:relative;border-radius:28px!important; }
@@ -45,6 +63,7 @@
     
         .fade-in-down { animation: fadeInDown 0.5s ease-out forwards; opacity: 0; transform: translateY(-15px); }
         @keyframes fadeInDown { to { opacity: 1; transform: translateY(0); } }
+        
         /* Loader pinkish */
         .loader { border: 3px solid rgba(244, 114, 182, 0.3); border-left-color: #ec4899; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -52,7 +71,7 @@
         .custom-scroll::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 4px; }
     </style>
 </head>
-<body class="text-gray-800 min-h-screen relative font-sans overflow-x-hidden">
+<body class="text-gray-800 min-h-screen relative overflow-x-hidden">
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
       <div class="absolute top-10 left-10 text-4xl opacity-30 animate-bounce">🦋</div>
       <div class="absolute top-40 right-20 text-3xl opacity-30 animate-pulse">🌸</div>
@@ -63,8 +82,8 @@
     <main class="px-6 w-full max-w-md md:max-w-4xl lg:max-w-6xl mx-auto pb-24 relative z-0 pt-8 md:pt-12"> 
         
         <div class="flex flex-col items-center justify-center text-center mb-8 md:mb-10 fade-in-down">
-            <h1 class="text-4xl md:text-5xl font-black italic tracking-tighter text-pink-500 leading-none drop-shadow-sm">🦋 Ciccu<span class="text-sky-400">Store</span> 🎀</h1>
-            <p class="text-[10px] md:text-xs text-pink-400 font-bold uppercase tracking-[0.2em] mt-2.5">☁️ Your 100% Trusted Seller ☁️</p>
+            <h1 class="font-logo text-5xl md:text-6xl text-pink-500 drop-shadow-sm pb-1">🦋 Ciccu<span class="text-sky-400">Store</span> 🎀</h1>
+            <p class="text-[10px] md:text-xs text-pink-400 font-bold uppercase tracking-[0.2em] mt-2">☁️ Your 100% Trusted Seller ☁️</p>
         </div>
 
         <div class="fade-in-down mb-6 md:mb-10 relative overflow-hidden bg-pink-100 border border-pink-200 rounded-[2rem] shadow-xl shadow-pink-100/50">
@@ -72,13 +91,13 @@
             <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-sky-300/30 blur-2xl rounded-full pointer-events-none md:w-48 md:h-48"></div>
             <div class="p-6 md:p-10 flex flex-col relative z-10 gap-4 text-center md:text-left">
                 <div class="w-full">
-                    <h2 class="font-fredoka text-[19px] sm:text-2xl md:text-4xl mb-3 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] tracking-wide whitespace-nowrap">
+                    <h2 class="font-logo text-3xl md:text-4xl mb-4 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] whitespace-nowrap leading-relaxed pb-1">
                         🦋 Premium Apps Pricelist 🎀
                     </h2>
-                    <p class="text-[11px] md:text-sm text-gray-500 font-medium leading-relaxed w-full">𓏭 🌷⭐️ 𝗪𝗼𝗿𝗸𝗶𝗲 land . . . 🪽 ♡ !? open 🥣🌱 ꕤ⁺◦ ⌒ 𓈒♡ ぬいぐるみ . . あまぬい 👛 ‧ . ⊹ 𓏭ᱸ♡ ⌗ 🧁 ？あまい 🎀☘️ ⊹ ふわあま 🥛 ♡ !? softie doll 🐰🍭 𓂃 ˚ 𖠗</p>
+                    <p class="text-[11px] md:text-sm text-gray-500 font-bold leading-relaxed w-full">𓏭 🌷⭐️ 𝗪𝗼𝗿𝗸𝗶𝗲 land . . . 🪽 ♡ !? open 🥣🌱 ꕤ⁺◦ ⌒ 𓈒♡ ぬいぐるみ . . あまぬい 👛 ‧ . ⊹ 𓏭ᱸ♡ ⌗ 🧁 ？あまい 🎀☘️ ⊹ ふわあま 🥛 ♡ !? softie doll 🐰🍭 𓂃 ˚ 𖠗</p>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-3 mt-2">
+                <div class="flex flex-col sm:flex-row gap-3 mt-3">
                     <button onclick="openLoyaltyModal()" class="flex-1 py-3 px-4 bg-pink-200/80 border border-pink-200 rounded-2xl text-pink-600 font-bold hover:bg-pink-300/80 transition-colors shadow-sm outline-none flex items-center justify-center gap-2">
                         🎁 Loyalty Card
                     </button>
@@ -99,7 +118,7 @@
             </div>
 
             <div class="relative w-full md:w-80 lg:w-96 flex-shrink-0">
-                <input type="text" id="searchInput" oninput="applyFilters()" class="w-full h-[52px] bg-pink-50 border border-pink-200 text-gray-800 text-sm rounded-2xl block pl-12 pr-4 py-3 outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition-colors shadow-sm" placeholder="Cari aplikasi favoritmu... 🎀✨">
+                <input type="text" id="searchInput" oninput="applyFilters()" class="w-full h-[52px] bg-pink-50 border border-pink-200 text-gray-800 text-sm rounded-2xl block pl-12 pr-4 py-3 outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition-colors shadow-sm font-bold" placeholder="Cari aplikasi favoritmu... 🎀✨">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
                     <svg class="w-5 h-5 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
@@ -108,13 +127,13 @@
 
         <div id="statusMessage" class="flex flex-col items-center justify-center py-10 space-y-3">
             <div class="loader"></div>
-            <p class="text-sm text-pink-500 font-medium tracking-wide">Menarik data dari server... ☁️🌸</p>
+            <p class="text-sm text-pink-500 font-bold tracking-wide">Menarik data dari server... ☁️🌸</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="pricingGrid">
             <div id="noResults" class="hidden col-span-full text-center py-12 fade-in-down max-w-md mx-auto w-full">
                 <div class="bg-pink-50/80 rounded-2xl p-8 border border-pink-200 inline-block w-full text-center">
-                    <p class="text-pink-500 text-sm font-medium">Aplikasi tidak ditemukan di kategori ini 🥺</p>
+                    <p class="text-pink-500 text-sm font-bold">Aplikasi tidak ditemukan di kategori ini 🥺</p>
                 </div>
             </div>
         </div>
@@ -137,7 +156,7 @@
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="orderModalContent">
             
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
-                <h3 class="text-xl font-black text-pink-600 flex items-center gap-2" id="modalAppNameTitle">Pilih Paket</h3>
+                <h3 class="font-logo text-2xl text-pink-600 flex items-center gap-2 pb-1" id="modalAppNameTitle">Pilih Paket</h3>
                 <button onclick="closeOrderModal()" class="text-pink-300 hover:text-pink-500 transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
             
@@ -145,7 +164,7 @@
             
             <div class="p-5 border-t border-pink-100 bg-pink-50 rounded-b-3xl">
                 <div id="qtyControl" class="hidden flex justify-between items-center mb-4 bg-white p-2 rounded-xl border border-pink-200">
-                    <span class="text-sm text-gray-500 pl-3 font-medium">Jumlah:</span>
+                    <span class="text-sm text-gray-500 pl-3 font-bold">Jumlah:</span>
                     <div class="flex items-center gap-3 pr-1">
                         <button onclick="changeQty(-1)" class="w-8 h-8 flex items-center justify-center bg-pink-100 rounded-lg hover:bg-pink-200 text-pink-600 font-bold outline-none transition-colors">-</button>
                         <span id="qtyDisplay" class="text-gray-800 font-bold w-6 text-center text-lg">1</span>
@@ -165,7 +184,7 @@
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-md flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="cartModalContent">
             
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
-                <h3 class="text-xl font-black text-pink-600 flex items-center gap-2">
+                <h3 class="font-logo text-2xl text-pink-600 flex items-center gap-2 pb-1">
                     <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                     Isi Keranjang 🎀
                 </h3>
@@ -176,7 +195,7 @@
             
             <div class="p-5 border-t border-pink-100 bg-pink-50 rounded-b-3xl">
                 <div class="flex justify-between items-center mb-4">
-                    <span class="text-gray-500 font-medium text-sm">Total Tagihan:</span>
+                    <span class="text-gray-500 font-bold text-sm">Total Tagihan:</span>
                     <span class="text-2xl font-black text-pink-600" id="cartGrandTotal">0K</span>
                 </div>
                 <button onclick="checkoutCartWA()" id="btnCheckoutWA" class="w-full py-3.5 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-xl transition shadow-lg shadow-green-200 outline-none flex justify-center items-center gap-2 transform hover:-translate-y-0.5">
@@ -191,7 +210,7 @@
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="loyaltyModalBackdrop" onclick="closeLoyaltyModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="loyaltyModalContent">
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
-                <h3 class="text-xl font-black text-pink-600 flex items-center gap-2">🎀 Ciccu Loyalty Card</h3>
+                <h3 class="font-logo text-2xl text-pink-600 flex items-center gap-2 pb-1">🎀 Ciccu Loyalty Card</h3>
                 <button onclick="closeLoyaltyModal()" class="text-pink-300 hover:text-pink-500 transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
             <div class="p-5 bg-white rounded-b-3xl">
@@ -206,25 +225,25 @@
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="termsModalBackdrop" onclick="closeTermsModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="termsModalContent">
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
-                <h3 class="text-xl font-black text-pink-600 flex items-center gap-2">📜 Terms & Conditions</h3>
+                <h3 class="font-logo text-2xl text-pink-600 flex items-center gap-2 pb-1">📜 Terms & Conditions</h3>
                 <button onclick="closeTermsModal()" class="text-pink-300 hover:text-pink-500 transition outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
             <div class="p-6 bg-white space-y-4 overflow-y-auto custom-scroll max-h-[60vh]">
                 <div class="space-y-1.5">
                     <h4 class="font-bold text-pink-500 text-sm flex items-center gap-1.5">🌸 Ketentuan Pembelian</h4>
-                    <p class="text-xs text-gray-600 leading-relaxed pl-5 text-justify">Dengan melakukan pembelian, pembeli dianggap telah memahami, dan menyetujui seluruh ketentuan yang berlaku di Ciccu Store.</p>
+                    <p class="text-xs text-gray-600 font-medium leading-relaxed pl-5 text-justify">Dengan melakukan pembelian, pembeli dianggap telah memahami, dan menyetujui seluruh ketentuan yang berlaku di Ciccu Store.</p>
                 </div>
                 <div class="space-y-1.5">
                     <h4 class="font-bold text-pink-500 text-sm flex items-center gap-1.5">🔒 Garansi</h4>
-                    <p class="text-xs text-gray-600 leading-relaxed pl-5 text-justify">Setiap produk memiliki ketentuan garansi yang berbeda sesuai detail produk masing-masing. Karena layanan yang dijual bersifat non-resmi, kelancaran akun atau aplikasi tidak dapat dijamin 100% tanpa kendala. Estimasi penanganan maksimal 3x24 jam. Namun apabila kendala terjadi secara massal / cakupan luas, estimasi dapat diperpanjang hingga 7x24 jam.</p>
+                    <p class="text-xs text-gray-600 font-medium leading-relaxed pl-5 text-justify">Setiap produk memiliki ketentuan garansi yang berbeda sesuai detail produk masing-masing. Karena layanan yang dijual bersifat non-resmi, kelancaran akun atau aplikasi tidak dapat dijamin 100% tanpa kendala. Estimasi penanganan maksimal 3x24 jam. Namun apabila kendala terjadi secara massal / cakupan luas, estimasi dapat diperpanjang hingga 7x24 jam.</p>
                 </div>
                 <div class="space-y-1.5">
                     <h4 class="font-bold text-pink-500 text-sm flex items-center gap-1.5">♻️ Replace</h4>
-                    <p class="text-xs text-gray-600 leading-relaxed pl-5 text-justify">Apabila terjadi kendala pada akun atau layanan, proses pengecekan dan penanganan akan dilakukan terlebih dahulu oleh seller yang selanjutnya akan diberikan replacement account jika komplain yang diajukan murni kendala pada akun yang bukan disebabkan oleh customer.</p>
+                    <p class="text-xs text-gray-600 font-medium leading-relaxed pl-5 text-justify">Apabila terjadi kendala pada akun atau layanan, proses pengecekan dan penanganan akan dilakukan terlebih dahulu oleh seller yang selanjutnya akan diberikan replacement account jika komplain yang diajukan murni kendala pada akun yang bukan disebabkan oleh customer.</p>
                 </div>
                 <div class="space-y-1.5">
                     <h4 class="font-bold text-pink-500 text-sm flex items-center gap-1.5">💸 Refund</h4>
-                    <p class="text-xs text-gray-600 leading-relaxed pl-5 text-justify">Refund hanya diberikan apabila seller tidak dapat memenuhi pesanan atau tidak dapat memberikan opsi lain setelah proses pengecekan selesai. Jika terjadi gangguan sebelum masa aktif habis, pembeli dapat menerima refund sesuai sisa masa aktif yang belum terpakai.</p>
+                    <p class="text-xs text-gray-600 font-medium leading-relaxed pl-5 text-justify">Refund hanya diberikan apabila seller tidak dapat memenuhi pesanan atau tidak dapat memberikan opsi lain setelah proses pengecekan selesai. Jika terjadi gangguan sebelum masa aktif habis, pembeli dapat menerima refund sesuai sisa masa aktif yang belum terpakai.</p>
                 </div>
             </div>
             <div class="p-4 bg-pink-50 border-t border-pink-100 rounded-b-3xl flex flex-col gap-2.5">
@@ -243,7 +262,7 @@
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="infoNetflixBackdrop" onclick="closeInfoNetflixModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl p-5 transform scale-95 transition-all duration-300 opacity-0" id="infoNetflixContent">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-md font-bold text-pink-600 flex items-center gap-1.5">ℹ️ Info Tambahan Netflix</h3>
+                <h3 class="font-logo text-xl text-pink-600 flex items-center gap-1.5 pb-1">ℹ️ Info Tambahan Netflix</h3>
                 <button onclick="closeInfoNetflixModal()" class="text-pink-300 hover:text-pink-500 transition outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
@@ -260,7 +279,7 @@
         </div>
         <div>
             <p class="font-bold text-sm">Ditambahkan! 💕</p>
-            <p class="text-xs text-gray-500">Keranjang diperbarui.</p>
+            <p class="text-xs text-gray-500 font-medium">Keranjang diperbarui.</p>
         </div>
     </div>
 
