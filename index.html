@@ -15,31 +15,20 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        @font-face {
-            font-family: 'BubbleGum';
-            src: url('bubblegum.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         body { 
             font-family: 'Quicksand', sans-serif; 
             background: linear-gradient(135deg, #e0f2fe, #fce7f3, #e0f2fe); 
             background-attachment: fixed;
         }
         
+        /* Judul Utama menggunakan font gaya iOS */
         .font-logo { 
-            font-family: 'BubbleGum', cursive; 
-            font-weight: normal;
-            letter-spacing: 1px; 
-        }
-
-        .font-pacifico {
-            font-family: 'Pacifico', cursive;
-            font-weight: normal;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif; 
+            font-weight: 800;
+            letter-spacing: -0.5px; 
         }
 
         body::before {
@@ -92,7 +81,7 @@
             <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-sky-300/30 blur-2xl rounded-full pointer-events-none md:w-48 md:h-48"></div>
             <div class="p-6 md:p-10 flex flex-col relative z-10 gap-4 text-center md:text-left w-full overflow-hidden">
                 <div class="w-full flex flex-col items-center md:items-start overflow-hidden">
-                    <h2 class="font-pacifico text-[15px] min-[360px]:text-[22px] sm:text-3xl md:text-4xl mb-4 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] whitespace-nowrap leading-relaxed pb-1 w-full text-center md:text-left">
+                    <h2 class="font-bold text-[15px] min-[360px]:text-[22px] sm:text-3xl md:text-4xl mb-4 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] whitespace-nowrap leading-relaxed pb-1 w-full text-center md:text-left">
                         🦋 Premium Apps Pricelist 🎀
                     </h2>
                     <p class="text-[11px] md:text-sm text-gray-500 font-bold leading-relaxed w-full">𓏭 🌷⭐️ 𝗪𝗼𝗿𝗸𝗶ie land . . . 🪽 ♡ !? open 🥣🌱 ꕤ⁺◦ ⌒ 𓈒♡ ぬいぐるみ . . あまぬい 👛 ‧ . ⊹ 𓏭ᱸ♡ ⌗ 🧁 ？あまい 🎀☘️ ⊹ ふわあま 🥛 ♡ !? softie doll 🐰🍭 𓂃 ˚ 𖠗</p>
@@ -144,7 +133,7 @@
         </div>
     </main>
 
-    <button onclick="openCartModal()" id="floatingCartBtn" class="floaty fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[60] bg-gradient-to-r from-pink-400 to-rose-400 text-white p-4 md:px-5 md:py-4 rounded-full shadow-[0_10px_40px_rgba(244,114,182,0.4)] flex items-center gap-3 transition-all duration-500 transform translate-y-32 opacity-0 outline-none hover:scale-105 group">
+    <button onclick="openCartModal()" id="floatingCartBtn" class="floaty fixed bottom-6 right-6 md:bottom-8 md:right-8 z- bg-gradient-to-r from-pink-400 to-rose-400 text-white p-4 md:px-5 md:py-4 rounded-full shadow-[0_10px_40px_rgba(244,114,182,0.4)] flex items-center gap-3 transition-all duration-500 transform translate-y-32 opacity-0 outline-none hover:scale-105 group">
         <div class="relative">
             <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
             <span id="cartBadgeFloating" class="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-white border-2 border-pink-400 text-[10px] text-pink-500 font-black shadow-md">0</span>
@@ -152,7 +141,7 @@
         <span class="font-bold text-sm hidden md:block">Keranjang 🌸</span>
     </button>
 
-    <div id="orderModal" class="fixed inset-0 z-[80] hidden flex items-center justify-center p-4">
+    <div id="orderModal" class="fixed inset-0 z- hidden flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="orderModalBackdrop" onclick="closeOrderModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="orderModalContent">
             
@@ -180,7 +169,7 @@
         </div>
     </div>
 
-    <div id="cartModal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4">
+    <div id="cartModal" class="fixed inset-0 z- hidden flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="cartModalBackdrop" onclick="closeCartModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-md flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="cartModalContent">
             
@@ -207,7 +196,7 @@
         </div>
     </div>
 
-    <div id="loyaltyModal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4">
+    <div id="loyaltyModal" class="fixed inset-0 z- hidden flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="loyaltyModalBackdrop" onclick="closeLoyaltyModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="loyaltyModalContent">
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
@@ -222,7 +211,7 @@
         </div>
     </div>
 
-    <div id="termsModal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4">
+    <div id="termsModal" class="fixed inset-0 z- hidden flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="termsModalBackdrop" onclick="closeTermsModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl transform scale-95 transition-all duration-300 opacity-0" id="termsModalContent">
             <div class="p-5 border-b border-pink-100 flex justify-between items-center bg-pink-50 rounded-t-3xl">
@@ -259,7 +248,7 @@
         </div>
     </div>
 
-    <div id="infoNetflixModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+    <div id="infoNetflixModal" class="fixed inset-0 z- hidden flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-pink-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="infoNetflixBackdrop" onclick="closeInfoNetflixModal()"></div>
         <div class="relative bg-white border border-pink-200 rounded-3xl w-full max-w-sm flex flex-col shadow-2xl p-5 transform scale-95 transition-all duration-300 opacity-0" id="infoNetflixContent">
             <div class="flex justify-between items-center mb-4">
@@ -274,7 +263,7 @@
         </div>
     </div>
 
-    <div id="toastNotif" class="fixed bottom-24 right-6 md:bottom-24 md:right-8 z-[100] bg-white border border-pink-200 text-gray-800 px-5 py-3 rounded-2xl shadow-xl shadow-pink-200/50 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none flex items-center gap-3">
+    <div id="toastNotif" class="fixed bottom-24 right-6 md:bottom-24 md:right-8 z- bg-white border border-pink-200 text-gray-800 px-5 py-3 rounded-2xl shadow-xl shadow-pink-200/50 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none flex items-center gap-3">
         <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-pink-500">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
         </div>
