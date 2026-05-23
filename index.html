@@ -15,10 +15,10 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Mengimpor font Bubble Gum lokal */
+        /* Mengimpor font Bubble Gum lokal (khusus untuk Logo Ciccu Store) */
         @font-face {
             font-family: 'BubbleGum';
             src: url('bubblegum.ttf') format('truetype');
@@ -34,11 +34,17 @@
             background-attachment: fixed;
         }
         
-        /* Font khusus untuk Logo & Judul Utama menggunakan Bubble Gum */
+        /* Font Bubble Gum untuk Logo */
         .font-logo { 
             font-family: 'BubbleGum', cursive; 
             font-weight: normal;
             letter-spacing: 1px; 
+        }
+
+        /* Font Pacifico untuk Judul Pricelist */
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+            font-weight: normal;
         }
 
         /* Motif Polkadot berselang-seling Putih, Biru Muda & Pink */
@@ -83,21 +89,24 @@
         
         <div class="flex flex-col items-center justify-center text-center mb-8 md:mb-10 fade-in-down">
             <h1 class="font-logo text-4xl sm:text-5xl md:text-6xl text-pink-500 drop-shadow-sm pb-1 whitespace-nowrap">🦋 Ciccu<span class="text-sky-400">Store</span> 🎀</h1>
-            <p class="text-[10px] md:text-xs text-pink-400 font-bold uppercase tracking-[0.2em] mt-2">☁️ Your 100% Trusted Seller ☁️</p>
+            
+            <p class="text-[9px] min-[360px]:text-[10px] md:text-xs text-pink-600 font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mt-3 bg-white/80 px-4 py-1.5 rounded-full shadow-sm backdrop-blur-md border border-pink-200 inline-block">
+                ☁️ Your 100% Trusted Seller ☁️
+            </p>
         </div>
 
         <div class="fade-in-down mb-6 md:mb-10 relative overflow-hidden bg-pink-100 border border-pink-200 rounded-[2rem] shadow-xl shadow-pink-100/50">
             <div class="absolute -top-16 -right-16 w-40 h-40 bg-pink-300/40 blur-3xl rounded-full pointer-events-none md:w-64 md:h-64"></div>
             <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-sky-300/30 blur-2xl rounded-full pointer-events-none md:w-48 md:h-48"></div>
-            <div class="p-6 md:p-10 flex flex-col relative z-10 gap-4 text-center md:text-left">
-                <div class="w-full">
-                    <h2 class="font-bold text-2xl sm:text-3xl md:text-4xl mb-4 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] whitespace-nowrap leading-relaxed pb-1">
+            <div class="p-6 md:p-10 flex flex-col relative z-10 gap-4 text-center md:text-left w-full overflow-hidden">
+                <div class="w-full flex flex-col items-center md:items-start overflow-hidden">
+                    <h2 class="font-pacifico text-[15px] min-[360px]:text-[18px] sm:text-3xl md:text-4xl mb-4 text-pink-500 drop-shadow-[0_2px_10px_rgba(244,114,182,0.2)] whitespace-nowrap leading-relaxed pb-1 w-full text-center md:text-left">
                         🦋 Premium Apps Pricelist 🎀
                     </h2>
                     <p class="text-[11px] md:text-sm text-gray-500 font-bold leading-relaxed w-full">𓏭 🌷⭐️ 𝗪𝗼𝗿𝗸𝗶𝗲 land . . . 🪽 ♡ !? open 🥣🌱 ꕤ⁺◦ ⌒ 𓈒♡ ぬいぐるみ . . あまぬい 👛 ‧ . ⊹ 𓏭ᱸ♡ ⌗ 🧁 ？あまい 🎀☘️ ⊹ ふわあま 🥛 ♡ !? softie doll 🐰🍭 𓂃 ˚ 𖠗</p>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-3 mt-3">
+                <div class="flex flex-col sm:flex-row gap-3 mt-3 w-full">
                     <button onclick="openLoyaltyModal()" class="flex-1 py-3 px-4 bg-pink-200/80 border border-pink-200 rounded-2xl text-pink-600 font-bold hover:bg-pink-300/80 transition-colors shadow-sm outline-none flex items-center justify-center gap-2">
                         🎁 Loyalty Card
                     </button>
